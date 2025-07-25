@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://f1o8ao5dfobi"
+path="res://.godot/imported/crate.obj-37f3bad55b48e3e15aad82214a478130.mesh"
+
+[deps]
+
+files=["res://.godot/imported/crate.obj-37f3bad55b48e3e15aad82214a478130.mesh"]
+
+source_file="res://assets/Platformer Kit/Models/OBJ format/crate.obj"
+dest_files=["res://.godot/imported/crate.obj-37f3bad55b48e3e15aad82214a478130.mesh", "res://.godot/imported/crate.obj-37f3bad55b48e3e15aad82214a478130.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cidlkkdahqbf0"
+path="res://.godot/imported/tower-round-build-a.obj-f3fb41480be7eb20728ed31b0f8f179b.mesh"
+
+[deps]
+
+files=["res://.godot/imported/tower-round-build-a.obj-f3fb41480be7eb20728ed31b0f8f179b.mesh"]
+
+source_file="res://assets/Tower Defense Kit/Models/OBJ format/tower-round-build-a.obj"
+dest_files=["res://.godot/imported/tower-round-build-a.obj-f3fb41480be7eb20728ed31b0f8f179b.mesh", "res://.godot/imported/tower-round-build-a.obj-f3fb41480be7eb20728ed31b0f8f179b.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

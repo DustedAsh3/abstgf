@@ -1,0 +1,86 @@
+[gd_scene load_steps=14 format=3 uid="uid://drtkjfhx7q8xm"]
+
+[ext_resource type="Script" uid="uid://8f8e5cpuiy7u" path="res://components/scripts/movement_component.gd" id="1_u51tk"]
+[ext_resource type="Script" uid="uid://ucnddnah3rub" path="res://components/scripts/health_component.gd" id="2_kbsxf"]
+[ext_resource type="Script" uid="uid://deybgve2t4ba1" path="res://components/scripts/shield_component.gd" id="3_rgeog"]
+[ext_resource type="Script" uid="uid://drk1gbdfdcgh7" path="res://components/scripts/melee_attack_component.gd" id="4_opo22"]
+[ext_resource type="Script" uid="uid://e3mmngaoqqs4" path="res://components/scripts/player_state_component.gd" id="5_8rb0w"]
+[ext_resource type="Script" uid="uid://com6tj2spr8e3" path="res://components/scripts/destructable_component.gd" id="6_sd3sa"]
+[ext_resource type="Script" uid="uid://j01uhe5t8i4n" path="res://components/scripts/input_component.gd" id="7_m2qjg"]
+[ext_resource type="Script" uid="uid://nxby0kwpx31w" path="res://components/scripts/saveable_component.gd" id="8_kbsxf"]
+[ext_resource type="Script" uid="uid://dpoc8n0xbwh0j" path="res://debug/player_debug_button.gd" id="9_rgeog"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_u51tk"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_fp3wc"]
+radius = 0.25
+height = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_72ieh"]
+albedo_color = Color(0, 0, 1, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_4dohe"]
+material = SubResource("StandardMaterial3D_72ieh")
+radius = 0.25
+height = 1.0
+
+[node name="Player" type="CharacterBody3D"]
+
+[node name="SpringArm3D" type="SpringArm3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.74816, 0)
+shape = SubResource("SphereShape3D_u51tk")
+spring_length = 5.0
+
+[node name="Camera3D" type="Camera3D" parent="SpringArm3D" groups=["camera"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("CapsuleShape3D_fp3wc")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+mesh = SubResource("CapsuleMesh_4dohe")
+
+[node name="MovementComponent" type="Node" parent="."]
+script = ExtResource("1_u51tk")
+metadata/_custom_type_script = "uid://8f8e5cpuiy7u"
+
+[node name="HealthComponent" type="Node" parent="."]
+script = ExtResource("2_kbsxf")
+metadata/_custom_type_script = "uid://ucnddnah3rub"
+
+[node name="ShieldComponent" type="Node" parent="."]
+script = ExtResource("3_rgeog")
+metadata/_custom_type_script = "uid://deybgve2t4ba1"
+
+[node name="MeleeAttackComponent" type="Node" parent="."]
+script = ExtResource("4_opo22")
+metadata/_custom_type_script = "uid://drk1gbdfdcgh7"
+
+[node name="PlayerStateComponent" type="Node" parent="."]
+script = ExtResource("5_8rb0w")
+metadata/_custom_type_script = "uid://e3mmngaoqqs4"
+
+[node name="DestructableComponent" type="Node" parent="."]
+script = ExtResource("6_sd3sa")
+metadata/_custom_type_script = "uid://com6tj2spr8e3"
+
+[node name="InputComponent" type="Node" parent="."]
+script = ExtResource("7_m2qjg")
+metadata/_custom_type_script = "uid://j01uhe5t8i4n"
+
+[node name="SaveableComponent" type="Node" parent="."]
+script = ExtResource("8_kbsxf")
+metadata/_custom_type_script = "uid://nxby0kwpx31w"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Button" type="Button" parent="CanvasLayer"]
+offset_left = 25.0
+offset_top = 13.0
+offset_right = 122.0
+offset_bottom = 62.0
+text = "Save"
+script = ExtResource("9_rgeog")
+
+[connection signal="pressed" from="CanvasLayer/Button" to="CanvasLayer/Button" method="_on_pressed"]

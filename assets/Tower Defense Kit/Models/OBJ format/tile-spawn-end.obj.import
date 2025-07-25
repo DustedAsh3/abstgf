@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://ddotqsadj7j71"
+path="res://.godot/imported/tile-spawn-end.obj-dde5b8c73326e9bec5969bc7385cc8ae.mesh"
+
+[deps]
+
+files=["res://.godot/imported/tile-spawn-end.obj-dde5b8c73326e9bec5969bc7385cc8ae.mesh"]
+
+source_file="res://assets/Tower Defense Kit/Models/OBJ format/tile-spawn-end.obj"
+dest_files=["res://.godot/imported/tile-spawn-end.obj-dde5b8c73326e9bec5969bc7385cc8ae.mesh", "res://.godot/imported/tile-spawn-end.obj-dde5b8c73326e9bec5969bc7385cc8ae.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

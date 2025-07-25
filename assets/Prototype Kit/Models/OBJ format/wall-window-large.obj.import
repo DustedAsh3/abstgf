@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://c213m743w3ekj"
+path="res://.godot/imported/wall-window-large.obj-5817d0f3db922e3c7961a3f4eddb642c.mesh"
+
+[deps]
+
+files=["res://.godot/imported/wall-window-large.obj-5817d0f3db922e3c7961a3f4eddb642c.mesh"]
+
+source_file="res://assets/Prototype Kit/Models/OBJ format/wall-window-large.obj"
+dest_files=["res://.godot/imported/wall-window-large.obj-5817d0f3db922e3c7961a3f4eddb642c.mesh", "res://.godot/imported/wall-window-large.obj-5817d0f3db922e3c7961a3f4eddb642c.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

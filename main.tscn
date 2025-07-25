@@ -1,0 +1,41 @@
+[gd_scene load_steps=7 format=3 uid="uid://bibl0axsyjiuw"]
+
+[ext_resource type="PackedScene" uid="uid://bee4b8kt6xktl" path="res://prefabs/tower.tscn" id="12_1u8w0"]
+[ext_resource type="PackedScene" uid="uid://drtkjfhx7q8xm" path="res://prefabs/player.tscn" id="14_lswn8"]
+[ext_resource type="PackedScene" uid="uid://brckhlh8mxl4j" path="res://prefabs/environment/block_grass_low_large.tscn" id="14_w48qg"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_w48qg"]
+sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+
+[sub_resource type="Sky" id="Sky_vivmo"]
+sky_material = SubResource("ProceduralSkyMaterial_w48qg")
+
+[sub_resource type="Environment" id="Environment_2cqfq"]
+background_mode = 2
+sky = SubResource("Sky_vivmo")
+tonemap_mode = 2
+glow_enabled = true
+
+[node name="Main" type="Node"]
+
+[node name="Systems" type="Node" parent="."]
+
+[node name="World" type="Node3D" parent="."]
+
+[node name="Tower" parent="World" instance=ExtResource("12_1u8w0")]
+
+[node name="Player" parent="World" instance=ExtResource("14_lswn8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="World"]
+environment = SubResource("Environment_2cqfq")
+
+[node name="block-grass-low-large2" parent="World" instance=ExtResource("14_w48qg")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, -5, 0)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="World"]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, -2.23749, 0)
+shadow_enabled = true
+
+[node name="Menus" type="Node" parent="."]

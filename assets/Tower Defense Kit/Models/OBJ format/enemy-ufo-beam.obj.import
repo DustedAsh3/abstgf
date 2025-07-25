@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dfd2a442l4fau"
+path="res://.godot/imported/enemy-ufo-beam.obj-4a440f83c1e906c6abeb98a5bc248bda.mesh"
+
+[deps]
+
+files=["res://.godot/imported/enemy-ufo-beam.obj-4a440f83c1e906c6abeb98a5bc248bda.mesh"]
+
+source_file="res://assets/Tower Defense Kit/Models/OBJ format/enemy-ufo-beam.obj"
+dest_files=["res://.godot/imported/enemy-ufo-beam.obj-4a440f83c1e906c6abeb98a5bc248bda.mesh", "res://.godot/imported/enemy-ufo-beam.obj-4a440f83c1e906c6abeb98a5bc248bda.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

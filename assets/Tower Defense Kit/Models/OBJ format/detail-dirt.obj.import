@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cwydg5c5xl0j0"
+path="res://.godot/imported/detail-dirt.obj-9f84b3f91a64de278071c3dd9c075ccb.mesh"
+
+[deps]
+
+files=["res://.godot/imported/detail-dirt.obj-9f84b3f91a64de278071c3dd9c075ccb.mesh"]
+
+source_file="res://assets/Tower Defense Kit/Models/OBJ format/detail-dirt.obj"
+dest_files=["res://.godot/imported/detail-dirt.obj-9f84b3f91a64de278071c3dd9c075ccb.mesh", "res://.godot/imported/detail-dirt.obj-9f84b3f91a64de278071c3dd9c075ccb.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

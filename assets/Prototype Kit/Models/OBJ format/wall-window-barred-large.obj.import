@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://o3xx1bmlxq0t"
+path="res://.godot/imported/wall-window-barred-large.obj-c49cf6c8b172b4dea0c21f399a9d635d.mesh"
+
+[deps]
+
+files=["res://.godot/imported/wall-window-barred-large.obj-c49cf6c8b172b4dea0c21f399a9d635d.mesh"]
+
+source_file="res://assets/Prototype Kit/Models/OBJ format/wall-window-barred-large.obj"
+dest_files=["res://.godot/imported/wall-window-barred-large.obj-c49cf6c8b172b4dea0c21f399a9d635d.mesh", "res://.godot/imported/wall-window-barred-large.obj-c49cf6c8b172b4dea0c21f399a9d635d.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

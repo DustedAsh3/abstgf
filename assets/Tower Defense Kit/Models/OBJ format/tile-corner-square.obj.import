@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bc064qw1kn73x"
+path="res://.godot/imported/tile-corner-square.obj-b78b44e77c320e990a63a2ff5cab319d.mesh"
+
+[deps]
+
+files=["res://.godot/imported/tile-corner-square.obj-b78b44e77c320e990a63a2ff5cab319d.mesh"]
+
+source_file="res://assets/Tower Defense Kit/Models/OBJ format/tile-corner-square.obj"
+dest_files=["res://.godot/imported/tile-corner-square.obj-b78b44e77c320e990a63a2ff5cab319d.mesh", "res://.godot/imported/tile-corner-square.obj-b78b44e77c320e990a63a2ff5cab319d.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

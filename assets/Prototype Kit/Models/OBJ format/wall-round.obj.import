@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dppp5yn510msv"
+path="res://.godot/imported/wall-round.obj-375bfc6327c58fa93d278bbd04772964.mesh"
+
+[deps]
+
+files=["res://.godot/imported/wall-round.obj-375bfc6327c58fa93d278bbd04772964.mesh"]
+
+source_file="res://assets/Prototype Kit/Models/OBJ format/wall-round.obj"
+dest_files=["res://.godot/imported/wall-round.obj-375bfc6327c58fa93d278bbd04772964.mesh", "res://.godot/imported/wall-round.obj-375bfc6327c58fa93d278bbd04772964.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

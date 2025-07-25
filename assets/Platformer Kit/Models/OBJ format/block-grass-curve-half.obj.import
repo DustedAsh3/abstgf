@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://oppe4xhyrr2w"
+path="res://.godot/imported/block-grass-curve-half.obj-a2bfc3e876522b9082ef1ae9caef492a.mesh"
+
+[deps]
+
+files=["res://.godot/imported/block-grass-curve-half.obj-a2bfc3e876522b9082ef1ae9caef492a.mesh"]
+
+source_file="res://assets/Platformer Kit/Models/OBJ format/block-grass-curve-half.obj"
+dest_files=["res://.godot/imported/block-grass-curve-half.obj-a2bfc3e876522b9082ef1ae9caef492a.mesh", "res://.godot/imported/block-grass-curve-half.obj-a2bfc3e876522b9082ef1ae9caef492a.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false
