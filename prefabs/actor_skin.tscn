@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://fymggo6kwffo"]
+
+[ext_resource type="Script" uid="uid://b8c4axsm6q2v8" path="res://prefabs/actor_skin.gd" id="1_lfjwp"]
+[ext_resource type="PackedScene" uid="uid://cbug2ogl05gqw" path="res://components/vision_component.tscn" id="2_mbrjy"]
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_lfjwp"]
+
+[node name="ActorSkin" type="Node3D"]
+script = ExtResource("1_lfjwp")
+
+[node name="Skin" type="MeshInstance3D" parent="."]
+
+[node name="Hitbox" type="CollisionShape3D" parent="."]
+
+[node name="Hurtbox" type="CollisionShape3D" parent="."]
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeStateMachine_lfjwp")
+anim_player = NodePath("../AnimationPlayer")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="VisionComponent" parent="." instance=ExtResource("2_mbrjy")]
+
+[editable path="VisionComponent"]

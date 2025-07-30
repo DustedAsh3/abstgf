@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://ctemu5dsbfymm"]
+
+[ext_resource type="Script" uid="uid://di65ej0wykixe" path="res://components/scripts/sensor_component.gd" id="1_yhw71"]
+
+[node name="SensorComponent" type="Area3D"]
+collision_layer = 0
+collision_mask = 3
+script = ExtResource("1_yhw71")
+
+[node name="SensorShape" type="CollisionShape3D" parent="."]

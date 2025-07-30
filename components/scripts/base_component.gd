@@ -1,3 +1,7 @@
+## Base Component
+## The Base Component serves as a foundational component, handling it's 
+## Creation, Deletion, and Connection to both the EventBus and other Components.
+
 class_name BaseComponent
 extends Node
 
@@ -48,7 +52,7 @@ func set_to_data(data_in):
 				var old = data[key]
 				if data[key] != data_in[key]:
 					data[key] = data_in[key]
-					print("Updated key '%s': %s -> %s" % [key, str(old), str(data[key])])
+					Debug.Log("Updated key '%s': %s -> %s" % [key, str(old), str(data[key])])
 
 func emit_data():
 	update_data()
@@ -60,7 +64,7 @@ func accept_data(data_in):
 
 func setup_connections():
 	var connected = EventBus.connect("event_emitted", handle_event)
-	print("Connected " + get_class() + " on " + str(owner_id) + ": " + str(connected))
+	Debug.Log("Connected " + get_class() + " on " + str(owner_id) + ": " + str(connected))
 
 func terminate_connections():
 	EventBus.disconnect("event_emitted", handle_event)
@@ -73,7 +77,7 @@ func handle_event(event_name, target_id, event_data):
 
 func modify_event(target: BaseComponent, property_name: String, new_value):
 	var old_value = target.get(property_name)
-	print("%s %s: event changed from %s to %s" % [
+	Debug.Log("%s %s: event changed from %s to %s" % [
 		target.name, target.get_instance_id(), str(old_value), str(new_value)
 	])
 	target.set(property_name, new_value)

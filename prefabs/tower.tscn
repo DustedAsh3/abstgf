@@ -1,11 +1,16 @@
-[gd_scene load_steps=7 format=3 uid="uid://bee4b8kt6xktl"]
+[gd_scene load_steps=10 format=3 uid="uid://bee4b8kt6xktl"]
 
 [ext_resource type="PackedScene" uid="uid://jdgkm7hsq8i1" path="res://prefabs/enemies/kitbash/tower_round_base.tscn" id="1_lul14"]
 [ext_resource type="PackedScene" uid="uid://ytxutuo82yog" path="res://prefabs/enemies/kitbash/tower_round_bottom_a.tscn" id="2_adpuy"]
 [ext_resource type="PackedScene" uid="uid://phhfowt4a5q2" path="res://prefabs/enemies/kitbash/weapon_turret.tscn" id="3_eeeyy"]
+[ext_resource type="PackedScene" uid="uid://bapj2vt6hqstb" path="res://components/point_at_target_component.tscn" id="4_4yjoa"]
 [ext_resource type="PackedScene" uid="uid://b6khqahko1lk0" path="res://components/destructable_component.tscn" id="4_eeeyy"]
 [ext_resource type="PackedScene" uid="uid://dc5thy3hjsq1p" path="res://components/health_component.tscn" id="5_w010u"]
 [ext_resource type="Script" uid="uid://87n5bta4iplk" path="res://components/scripts/ranged_attack_component.gd" id="6_w010u"]
+[ext_resource type="PackedScene" uid="uid://cbug2ogl05gqw" path="res://components/vision_component.tscn" id="8_5tyd1"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_5tyd1"]
+radius = 5.173
 
 [node name="Tower" type="Node3D"]
 
@@ -17,6 +22,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.137395, 0)
 [node name="weapon-turret2" parent="." instance=ExtResource("3_eeeyy")]
 transform = Transform3D(1.30284, 0, 0, 0, 1.30284, 0, 0, 0, 1.30284, 0, 0.534669, 0)
 
+[node name="PointAtTargetComponent" parent="weapon-turret2" instance=ExtResource("4_4yjoa")]
+
 [node name="DestructableComponent" parent="." instance=ExtResource("4_eeeyy")]
 
 [node name="HealthComponent" parent="." instance=ExtResource("5_w010u")]
@@ -24,3 +31,11 @@ transform = Transform3D(1.30284, 0, 0, 0, 1.30284, 0, 0, 0, 1.30284, 0, 0.534669
 [node name="RangedAttackComponent" type="Node" parent="."]
 script = ExtResource("6_w010u")
 metadata/_custom_type_script = "uid://drbs8s6btpoyp"
+
+[node name="VisionComponent" parent="." instance=ExtResource("8_5tyd1")]
+sight_tick_rate = 2.0
+
+[node name="SensorShape" parent="VisionComponent" index="0"]
+shape = SubResource("SphereShape3D_5tyd1")
+
+[editable path="VisionComponent"]

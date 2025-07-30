@@ -23,7 +23,7 @@ func _ready():
 	else:
 		push_error("SpringArm3D not found as camera's parent.")
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	print("Follow Target: " + str(follow_target))
+	Debug.Log("Follow Target: " + str(follow_target))
 
 func _input(event):
 	if event is InputEventMouseMotion:

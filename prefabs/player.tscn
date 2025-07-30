@@ -1,5 +1,6 @@
-[gd_scene load_steps=14 format=3 uid="uid://drtkjfhx7q8xm"]
+[gd_scene load_steps=17 format=3 uid="uid://drtkjfhx7q8xm"]
 
+[ext_resource type="PackedScene" uid="uid://fymggo6kwffo" path="res://prefabs/actor_skin.tscn" id="1_sd3sa"]
 [ext_resource type="Script" uid="uid://8f8e5cpuiy7u" path="res://components/scripts/movement_component.gd" id="1_u51tk"]
 [ext_resource type="Script" uid="uid://ucnddnah3rub" path="res://components/scripts/health_component.gd" id="2_kbsxf"]
 [ext_resource type="Script" uid="uid://deybgve2t4ba1" path="res://components/scripts/shield_component.gd" id="3_rgeog"]
@@ -9,6 +10,16 @@
 [ext_resource type="Script" uid="uid://j01uhe5t8i4n" path="res://components/scripts/input_component.gd" id="7_m2qjg"]
 [ext_resource type="Script" uid="uid://nxby0kwpx31w" path="res://components/scripts/saveable_component.gd" id="8_kbsxf"]
 [ext_resource type="Script" uid="uid://dpoc8n0xbwh0j" path="res://debug/player_debug_button.gd" id="9_rgeog"]
+[ext_resource type="Script" uid="uid://dmg2qg3ja8i8a" path="res://debug/player_console_edit.gd" id="10_opo22"]
+[ext_resource type="Script" uid="uid://pqvn56oks6ic" path="res://debug/debug_log.gd" id="11_8rb0w"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m2qjg"]
+albedo_color = Color(0.076333, 0.334029, 0.758334, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_llb5v"]
+material = SubResource("StandardMaterial3D_m2qjg")
+radius = 0.25
+height = 1.0
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_u51tk"]
 
@@ -16,15 +27,13 @@
 radius = 0.25
 height = 1.0
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_72ieh"]
-albedo_color = Color(0, 0, 1, 1)
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_4dohe"]
-material = SubResource("StandardMaterial3D_72ieh")
-radius = 0.25
-height = 1.0
-
 [node name="Player" type="CharacterBody3D"]
+
+[node name="ActorSkin" parent="." instance=ExtResource("1_sd3sa")]
+
+[node name="Skin" parent="ActorSkin" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+mesh = SubResource("CapsuleMesh_llb5v")
 
 [node name="SpringArm3D" type="SpringArm3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.74816, 0)
@@ -36,10 +45,6 @@ spring_length = 5.0
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("CapsuleShape3D_fp3wc")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
-mesh = SubResource("CapsuleMesh_4dohe")
 
 [node name="MovementComponent" type="Node" parent="."]
 script = ExtResource("1_u51tk")
@@ -83,4 +88,25 @@ offset_bottom = 62.0
 text = "Save"
 script = ExtResource("9_rgeog")
 
+[node name="LineEdit" type="LineEdit" parent="CanvasLayer"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 48.0
+offset_top = -75.0
+offset_right = 401.0
+offset_bottom = -44.0
+grow_vertical = 0
+placeholder_text = "Enter Command..."
+script = ExtResource("10_opo22")
+metadata/_edit_use_anchors_ = true
+
+[node name="TextEdit" type="TextEdit" parent="CanvasLayer"]
+offset_right = 1151.0
+offset_bottom = 433.0
+script = ExtResource("11_8rb0w")
+
 [connection signal="pressed" from="CanvasLayer/Button" to="CanvasLayer/Button" method="_on_pressed"]
+
+[editable path="ActorSkin"]
+[editable path="ActorSkin/VisionComponent"]

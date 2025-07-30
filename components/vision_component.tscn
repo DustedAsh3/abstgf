@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://cbug2ogl05gqw"]
+
+[ext_resource type="Script" uid="uid://drome0hunqq0r" path="res://components/scripts/vision_component.gd" id="1_fibno"]
+
+[node name="VisionComponent" type="Area3D"]
+collision_layer = 0
+collision_mask = 3
+script = ExtResource("1_fibno")
+sensor_key = "in_sight"
+
+[node name="SensorShape" type="CollisionShape3D" parent="."]
+
+[node name="SightTick" type="Timer" parent="."]
+wait_time = 0.1
