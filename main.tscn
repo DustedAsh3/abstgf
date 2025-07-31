@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://bibl0axsyjiuw"]
+[gd_scene load_steps=9 format=3 uid="uid://bibl0axsyjiuw"]
 
+[ext_resource type="PackedScene" uid="uid://ckkoeffehcsul" path="res://assets/Platformer Kit/Models/FBX format/block-grass-hexagon.fbx" id="4_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://bee4b8kt6xktl" path="res://prefabs/tower.tscn" id="12_1u8w0"]
 [ext_resource type="PackedScene" uid="uid://drtkjfhx7q8xm" path="res://prefabs/player.tscn" id="14_lswn8"]
 [ext_resource type="PackedScene" uid="uid://brckhlh8mxl4j" path="res://prefabs/environment/block_grass_low_large.tscn" id="14_w48qg"]
@@ -17,6 +18,9 @@ sky = SubResource("Sky_vivmo")
 tonemap_mode = 2
 glow_enabled = true
 
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_1bvp3"]
+data = PackedVector3Array(0.5, 1, 0.2887, 0, 1, -0.5774, 0.5, 1, -0.2887, 0, 1, -0.5774, 0.5, 1, 0.2887, 0, 1, 0.5774, 0, 1, -0.5774, 0, 1, 0.5774, -0.5, 1, -0.2887, -0.5, 1, -0.2887, 0, 1, 0.5774, -0.5, 1, 0.2887, 0.55, 0.875, 0.3175, 0.5, 1, -0.2887, 0.55, 0.875, -0.3175, 0.5, 1, -0.2887, 0.55, 0.875, 0.3175, 0.5, 1, 0.2887, 0.5, 0.75, -0.2887, 0.55, 0.875, 0.3175, 0.55, 0.875, -0.3175, 0.55, 0.875, 0.3175, 0.5, 0.75, -0.2887, 0.5, 0.75, 0.2887, 0, 1, -0.5774, 0.55, 0.875, -0.3175, 0.5, 1, -0.2887, 0.55, 0.875, -0.3175, 0, 1, -0.5774, 0, 0.875, -0.6351, 0, 0.875, -0.6351, 0.5, 0.75, -0.2887, 0.55, 0.875, -0.3175, 0.5, 0.75, -0.2887, 0, 0.875, -0.6351, 0, 0.75, -0.5774, -0.5, 1, -0.2887, 0, 0.875, -0.6351, 0, 1, -0.5774, 0, 0.875, -0.6351, -0.5, 1, -0.2887, -0.55, 0.875, -0.3175, -0.55, 0.875, -0.3175, 0, 0.75, -0.5774, 0, 0.875, -0.6351, 0, 0.75, -0.5774, -0.55, 0.875, -0.3175, -0.5, 0.75, -0.2887, 0, 0.875, 0.6351, 0.5, 1, 0.2887, 0.55, 0.875, 0.3175, 0.5, 1, 0.2887, 0, 0.875, 0.6351, 0, 1, 0.5774, -0.5, 0.75, 0.2887, 0, 0.875, 0.6351, 0, 0.75, 0.5774, 0, 0.875, 0.6351, -0.5, 0.75, 0.2887, -0.55, 0.875, 0.3175, -0.55, 0.875, 0.3175, -0.5, 0.75, -0.2887, -0.55, 0.875, -0.3175, -0.5, 0.75, -0.2887, -0.55, 0.875, 0.3175, -0.5, 0.75, 0.2887, -0.5, 1, -0.2887, -0.55, 0.875, 0.3175, -0.55, 0.875, -0.3175, -0.55, 0.875, 0.3175, -0.5, 1, -0.2887, -0.5, 1, 0.2887, -0.55, 0.875, 0.3175, 0, 1, 0.5774, 0, 0.875, 0.6351, 0, 1, 0.5774, -0.55, 0.875, 0.3175, -0.5, 1, 0.2887, 0.55, 0.875, 0.3175, 0, 0.75, 0.5774, 0, 0.875, 0.6351, 0, 0.75, 0.5774, 0.55, 0.875, 0.3175, 0.5, 0.75, 0.2887, -0.5, 0, 0.2887, 0, 0.75, 0.5774, 0, 0, 0.5774, 0, 0.75, 0.5774, -0.5, 0, 0.2887, -0.5, 0.75, 0.2887, 0.5, 0, -0.2887, 0, 0, 0.5774, 0.5, 0, 0.2887, 0, 0, 0.5774, 0.5, 0, -0.2887, 0, 0, -0.5774, 0, 0, 0.5774, 0, 0, -0.5774, -0.5, 0, 0.2887, -0.5, 0, 0.2887, 0, 0, -0.5774, -0.5, 0, -0.2887, 0, 0, 0.5774, 0.5, 0.75, 0.2887, 0.5, 0, 0.2887, 0.5, 0.75, 0.2887, 0, 0, 0.5774, 0, 0.75, 0.5774, 0, 0, -0.5774, -0.5, 0.75, -0.2887, -0.5, 0, -0.2887, -0.5, 0.75, -0.2887, 0, 0, -0.5774, 0, 0.75, -0.5774, 0.5, 0, -0.2887, 0, 0.75, -0.5774, 0, 0, -0.5774, 0, 0.75, -0.5774, 0.5, 0, -0.2887, 0.5, 0.75, -0.2887, -0.5, 0.75, -0.2887, -0.5, 0, 0.2887, -0.5, 0, -0.2887, -0.5, 0, 0.2887, -0.5, 0.75, -0.2887, -0.5, 0.75, 0.2887, 0.5, 0, -0.2887, 0.5, 0.75, 0.2887, 0.5, 0.75, -0.2887, 0.5, 0.75, 0.2887, 0.5, 0, -0.2887, 0.5, 0, 0.2887)
+
 [node name="Main" type="Node"]
 
 [node name="Systems" type="Node" parent="."]
@@ -26,7 +30,7 @@ glow_enabled = true
 [node name="Tower" parent="World" instance=ExtResource("12_1u8w0")]
 
 [node name="Player" parent="World" instance=ExtResource("14_lswn8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6.35049)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="World"]
 environment = SubResource("Environment_2cqfq")
@@ -39,3 +43,13 @@ transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -
 shadow_enabled = true
 
 [node name="Menus" type="Node" parent="."]
+
+[node name="block-grass-hexagon" parent="." instance=ExtResource("4_1bvp3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0104374, 0, 2.41962)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="block-grass-hexagon/block-grass-hexagon" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="block-grass-hexagon/block-grass-hexagon/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_1bvp3")
+
+[editable path="block-grass-hexagon"]

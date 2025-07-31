@@ -3,13 +3,17 @@ extends SensorComponent
 
 @export var sight_tick_rate := 0.1
 @export var eye_offset := Vector3(0, 1.6, 0) # Head Height
-@export var look_offset := Vector3(0, 1.0, 0) # Default Look Height
+@export var look_offset := Vector3(0, 0.5, 0) # Default Look Height
 @onready var sight_tick_timer: Timer = $SightTick
+
+var obstructed_key : String
 
 func _ready():
 	super()
+	obstructed_key = sensor_key + "obstructed"
 	sight_tick_timer.wait_time = sight_tick_rate
 	sight_tick_timer.timeout.connect(cast_rays)
+	EventBus.register_sensor(owner_id, obstructed_key, get_instance_id())
 
 func _on_entered(body):
 	super(body)
@@ -25,11 +29,12 @@ func start_cast_rays(body):
 		sight_tick_timer.start()
 
 func stop_cast_rays(body):
-	if EventBus.stateful_data[owner_id][sensor_key].is_empty(): #No Bodies in sight. Stop timer.
+	if EventBus.stateful_data[owner_id][sensor_key].is_empty() and EventBus.stateful_data[owner_id][obstructed_key].is_empty(): #No Bodies in sight. Stop timer.
 		sight_tick_timer.stop()
 
 func cast_rays():
 	for body in EventBus.stateful_data[owner_id][sensor_key]:
+		var target_found := false
 		var from = global_transform.origin + eye_offset
 		var to = instance_from_id(body).global_transform.origin + look_offset
 		var space = get_world_3d().direct_space_state
@@ -40,4 +45,10 @@ func cast_rays():
 			Debug.Log("Cast rays, but no collision was registered!" + str(owner_id) + ", Vision Component")
 		if collision.has("collider_id"):
 			if collision["collider_id"] != body:
-				EventBus.stateful_data[owner_id][sensor_key + "obstructed"].append(body)
+				EventBus.stateful_data[owner_id][obstructed_key].append(body)
+				if EventBus.stateful_data[owner_id][sensor_key].has(body):
+					EventBus.stateful_data[owner_id][sensor_key].erase(body)
+			elif not EventBus.stateful_data[owner_id][sensor_key].has(body):
+				EventBus.stateful_data[owner_id][sensor_key].append(body)
+				if EventBus.stateful_data[owner_id][obstructed_key].has(body):
+					EventBus.stateful_data[owner_id][obstructed_key].erase(body)

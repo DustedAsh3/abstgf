@@ -21,5 +21,8 @@ anim_player = NodePath("../AnimationPlayer")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 
 [node name="VisionComponent" parent="." instance=ExtResource("2_mbrjy")]
+sight_tick_rate = null
+eye_offset = null
+look_offset = null
 
 [editable path="VisionComponent"]

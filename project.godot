@@ -19,7 +19,6 @@ config/icon="res://icon.svg"
 
 AudioManager="*res://systems/audio_manager.gd"
 CameraManager="*res://systems/camera_manager.gd"
-EnemyAiManager="*res://systems/enemy_ai_manager.gd"
 EventBus="*res://systems/event_bus.gd"
 GameStateManager="*res://systems/game_state_manager.gd"
 HudManager="*res://systems/hud_manager.gd"

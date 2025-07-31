@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://d37alcml8jek0"]
+
+[ext_resource type="Script" uid="uid://60r3iudi0jfp" path="res://components/scripts/ai_actor_component.gd" id="1_dsyke"]
+
+[node name="AiActorComponent" type="Node"]
+script = ExtResource("1_dsyke")
+action_resources = null
+tick_rate = null
+metadata/_custom_type_script = "uid://drbs8s6btpoyp"

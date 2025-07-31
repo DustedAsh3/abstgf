@@ -35,6 +35,11 @@ height = 1.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 mesh = SubResource("CapsuleMesh_llb5v")
 
+[node name="VisionComponent" parent="ActorSkin" index="5"]
+sight_tick_rate = 0.1
+eye_offset = Vector3(0, 1.6, 0)
+look_offset = Vector3(0, 0.5, 0)
+
 [node name="SpringArm3D" type="SpringArm3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.74816, 0)
 shape = SubResource("SphereShape3D_u51tk")
