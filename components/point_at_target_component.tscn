@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://bapj2vt6hqstb"]
-
-[ext_resource type="Script" uid="uid://d27lr50i2w61s" path="res://components/scripts/point_at_target_component.gd" id="1_lcs0g"]
-
-[node name="PointAtTargetComponent" type="Node"]
-script = ExtResource("1_lcs0g")

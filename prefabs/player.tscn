@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://drtkjfhx7q8xm"]
+[gd_scene load_steps=16 format=3 uid="uid://drtkjfhx7q8xm"]
 
 [ext_resource type="PackedScene" uid="uid://fymggo6kwffo" path="res://prefabs/actor_skin.tscn" id="1_sd3sa"]
 [ext_resource type="Script" uid="uid://8f8e5cpuiy7u" path="res://components/scripts/movement_component.gd" id="1_u51tk"]
@@ -9,7 +9,6 @@
 [ext_resource type="Script" uid="uid://com6tj2spr8e3" path="res://components/scripts/destructable_component.gd" id="6_sd3sa"]
 [ext_resource type="Script" uid="uid://j01uhe5t8i4n" path="res://components/scripts/input_component.gd" id="7_m2qjg"]
 [ext_resource type="Script" uid="uid://nxby0kwpx31w" path="res://components/scripts/saveable_component.gd" id="8_kbsxf"]
-[ext_resource type="Script" uid="uid://dpoc8n0xbwh0j" path="res://debug/player_debug_button.gd" id="9_rgeog"]
 [ext_resource type="Script" uid="uid://dmg2qg3ja8i8a" path="res://debug/player_console_edit.gd" id="10_opo22"]
 [ext_resource type="Script" uid="uid://pqvn56oks6ic" path="res://debug/debug_log.gd" id="11_8rb0w"]
 
@@ -41,7 +40,7 @@ eye_offset = Vector3(0, 1.6, 0)
 look_offset = Vector3(0, 0.5, 0)
 
 [node name="SpringArm3D" type="SpringArm3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.74816, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.366971, 1.01308, 0)
 shape = SubResource("SphereShape3D_u51tk")
 spring_length = 5.0
 
@@ -81,17 +80,10 @@ metadata/_custom_type_script = "uid://j01uhe5t8i4n"
 
 [node name="SaveableComponent" type="Node" parent="."]
 script = ExtResource("8_kbsxf")
+save_name = "player_data"
 metadata/_custom_type_script = "uid://nxby0kwpx31w"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="Button" type="Button" parent="CanvasLayer"]
-offset_left = 25.0
-offset_top = 13.0
-offset_right = 122.0
-offset_bottom = 62.0
-text = "Save"
-script = ExtResource("9_rgeog")
 
 [node name="LineEdit" type="LineEdit" parent="CanvasLayer"]
 anchors_preset = 2
@@ -111,7 +103,19 @@ offset_right = 1151.0
 offset_bottom = 433.0
 script = ExtResource("11_8rb0w")
 
-[connection signal="pressed" from="CanvasLayer/Button" to="CanvasLayer/Button" method="_on_pressed"]
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1.0
+offset_top = -1.0
+offset_right = 1.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
 
 [editable path="ActorSkin"]
 [editable path="ActorSkin/VisionComponent"]

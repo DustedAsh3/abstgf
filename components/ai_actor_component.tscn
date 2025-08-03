@@ -4,6 +4,4 @@
 
 [node name="AiActorComponent" type="Node"]
 script = ExtResource("1_dsyke")
-action_resources = null
-tick_rate = null
 metadata/_custom_type_script = "uid://drbs8s6btpoyp"

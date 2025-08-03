@@ -28,6 +28,7 @@ data = PackedVector3Array(0.5, 1, 0.2887, 0, 1, -0.5774, 0.5, 1, -0.2887, 0, 1, 
 [node name="World" type="Node3D" parent="."]
 
 [node name="Tower" parent="World" instance=ExtResource("12_1u8w0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.270344, 2.38419e-07, -1.67341)
 
 [node name="Player" parent="World" instance=ExtResource("14_lswn8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6.35049)

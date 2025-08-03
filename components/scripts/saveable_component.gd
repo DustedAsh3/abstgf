@@ -3,6 +3,14 @@ extends BaseComponent
 
 var event_save_complete := "save_complete"
 var event_load_complete := "load_complete"
+var save_location : String
+@export var save_name := "default"
+
+func _ready():
+	super()
+	if save_name == "default":
+		save_name = owner_entity.name
+	save_location = "res://resources/data/" + save_name + ".tres"
 
 func handle_event(event_name, target_id, event_data):
 	super(event_name, target_id, event_data)
@@ -33,12 +41,12 @@ func request_save():
 	EventBus.emit_event("save_entity", owner_id, data)
 
 func save_component():
-	var player_data = PlayerData.new()
-	player_data.data = data.duplicate(true)
-	ResourceSaver.save(player_data, "res://resources/player_data.tres")
+	var actor_data = ActorData.new()
+	actor_data.data = data.duplicate(true)
+	ResourceSaver.save(actor_data, save_location)
 	EventBus.emit_event("entity_saved", owner_id, data)
 
 func load_entity():
-	var player_data = ResourceLoader.load("res://resources/player_data.tres","",ResourceLoader.CACHE_MODE_REPLACE)
-	data = player_data.data.duplicate(true)
+	var actor_data = ResourceLoader.load(save_location,"",ResourceLoader.CACHE_MODE_REPLACE)
+	data = actor_data.data.duplicate(true)
 	EventBus.emit_event("set_to_data", owner_id, data)

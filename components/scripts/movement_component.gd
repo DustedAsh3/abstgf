@@ -11,7 +11,7 @@ var current_velocity: Vector3 = Vector3.ZERO
 var jump_count: int = 0
 var move_direction: Vector3 = Vector3.ZERO
 
-var event_input: String = "player_input"
+var event_input: String = "entity_input"
 
 func handle_event(event_name, target_id, event_data):
 	super(event_name, target_id, event_data)

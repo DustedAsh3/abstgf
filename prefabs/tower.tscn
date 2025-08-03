@@ -1,20 +1,33 @@
-[gd_scene load_steps=10 format=3 uid="uid://bee4b8kt6xktl"]
+[gd_scene load_steps=15 format=3 uid="uid://bee4b8kt6xktl"]
 
 [ext_resource type="PackedScene" uid="uid://fymggo6kwffo" path="res://prefabs/actor_skin.tscn" id="1_5tyd1"]
 [ext_resource type="PackedScene" uid="uid://jdgkm7hsq8i1" path="res://prefabs/enemies/kitbash/tower_round_base.tscn" id="1_lul14"]
 [ext_resource type="PackedScene" uid="uid://ytxutuo82yog" path="res://prefabs/enemies/kitbash/tower_round_bottom_a.tscn" id="2_adpuy"]
 [ext_resource type="PackedScene" uid="uid://phhfowt4a5q2" path="res://prefabs/enemies/kitbash/weapon_turret.tscn" id="3_eeeyy"]
-[ext_resource type="PackedScene" uid="uid://bapj2vt6hqstb" path="res://components/point_at_target_component.tscn" id="4_4yjoa"]
 [ext_resource type="PackedScene" uid="uid://b6khqahko1lk0" path="res://components/destructable_component.tscn" id="4_eeeyy"]
 [ext_resource type="PackedScene" uid="uid://dc5thy3hjsq1p" path="res://components/health_component.tscn" id="5_w010u"]
+[ext_resource type="PackedScene" uid="uid://d37alcml8jek0" path="res://components/ai_actor_component.tscn" id="6_j84yg"]
 [ext_resource type="Script" uid="uid://87n5bta4iplk" path="res://components/scripts/ranged_attack_component.gd" id="6_w010u"]
+[ext_resource type="Script" uid="uid://bs0b2ocx3cupt" path="res://actions/base_action.gd" id="6_xdehp"]
+[ext_resource type="PackedScene" uid="uid://c05d17au5rry5" path="res://components/saveable_component.tscn" id="7_x20k3"]
+[ext_resource type="Script" uid="uid://cdc6m5agiy03g" path="res://actions/face_target_action.gd" id="7_xdehp"]
+[ext_resource type="PackedScene" uid="uid://cd3ck4o0mgg18" path="res://components/movement_component.tscn" id="8_06ieg"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_j84yg"]
 radius = 5.0
 
+[sub_resource type="Resource" id="Resource_xgiax"]
+script = ExtResource("7_xdehp")
+base_priority = 0
+metadata/_custom_type_script = "uid://cdc6m5agiy03g"
+
 [node name="Tower" type="Node3D"]
 
 [node name="ActorSkin" parent="." instance=ExtResource("1_5tyd1")]
+transform = Transform3D(0.998963, 0, -0.0455373, 0, 1, 0, 0.0455373, 0, 0.998963, 0, 0.415687, 0)
+
+[node name="weapon-turret2" parent="ActorSkin/Skin" index="0" instance=ExtResource("3_eeeyy")]
+transform = Transform3D(1.30284, 0, 0, 0, 1.30284, 0, 0, 0, 1.30284, 0, 0, 0)
 
 [node name="VisionComponent" parent="ActorSkin" index="5"]
 sight_tick_rate = 0.1
@@ -29,10 +42,13 @@ shape = SubResource("SphereShape3D_j84yg")
 [node name="tower-round-bottom-a2" parent="." instance=ExtResource("2_adpuy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.137395, 0)
 
-[node name="weapon-turret2" parent="." instance=ExtResource("3_eeeyy")]
-transform = Transform3D(1.30284, 0, 0, 0, 1.30284, 0, 0, 0, 1.30284, 0, 0.534669, 0)
+[node name="AiActorComponent" parent="." instance=ExtResource("6_j84yg")]
+action_resources = Array[ExtResource("6_xdehp")]([SubResource("Resource_xgiax"), null])
+tick_rate = 0.1
 
-[node name="PointAtTargetComponent" parent="weapon-turret2" instance=ExtResource("4_4yjoa")]
+[node name="SaveableComponent" parent="." instance=ExtResource("7_x20k3")]
+
+[node name="MovementComponent" parent="." instance=ExtResource("8_06ieg")]
 
 [node name="DestructableComponent" parent="." instance=ExtResource("4_eeeyy")]
 

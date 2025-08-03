@@ -6,74 +6,77 @@ extends BaseComponent
 
 
 # Export a list of Script resources that extend ActionBase
-@export var action_resources : Array[Resource]
+@export var action_resources : Array[BaseAction]
 @export var tick_rate := 1.0
 
-# Internal mapping: action name -> Script class
-var _action_scripts := {}              
+var _action_list := {}              
 # Currently running action instance
 var _current_action : BaseAction
-# Shared data facts for this actor (filled from sensors)
 var blackboard := {}
-
 
 func _ready():
 	super()  # BaseComponent._ready() will emit creation events, then call initialize
-	get_tree().create_timer(tick_rate).timeout.connect(update())
+	var timer = Utils.CreateTimer(self, tick_rate)
+	timer.timeout.connect(update)
 
 func initialize(params = {}):
 	# Base setup
 	super(params)
 	# Load all action scripts into a dictionary
 	_load_action_scripts()
-	# Optionally: subscribe to a global tick or use _process
-	set_process(true)
-	Debug.Log("AIActorComponent initialized on %d with %d actions." % [owner_id, _action_scripts.size()])
+	Debug.Log("AIActorComponent initialized on %d with %d actions." % [owner_id, _action_list.size()])
 
 func _load_action_scripts():
-	_action_scripts.clear()
-	for res in action_resources:
-		if res is Script:
-			var cls_name = res.get_class()
-			_action_scripts[cls_name] = res
+	_action_list.clear()
+	for act in action_resources:
+		if act is BaseAction:
+			var cls_name = act.get_class()
+			_action_list[cls_name] = act
+			Debug.Log("Action List: " + str(_action_list))
 		else:
-			Debug.Log("[AIActor] Invalid action resource: %s" % str(res))
+			Debug.Log("[AIActor] Invalid action resource: %s" % str(act))
 
+# This is pretty inefficient. TODO: Refactor to reduce the number of prioritization calls
 func update():
-	# 1) Update blackboard from EventBus.stateful_data
-	_update_blackboard()
-	# 2) If no action or finished, pick next
+	blackboard = EventBus.stateful_data[owner_id]
+	blackboard["AiActorComponent"] = get_instance_id()
+	blackboard["Owner"] = owner_id
 	if _current_action == null or _current_action.is_finished():
 		_start_next_action()
-	# 3) Tick current action
+		
 	if _current_action:
-		_current_action.update()
+		var prioritized_action = check_priorities()
+		if prioritized_action != _current_action and prioritized_action.interruptable:
+			_start_next_action()
+			return
+		_current_action.update(blackboard)
 
-func _update_blackboard():
-	# Pull in latest sensed data for this actor
-	if EventBus.stateful_data.has(owner_id):
-		blackboard = EventBus.stateful_data[owner_id]
-	else:
-		blackboard = {}
+
+func _process(delta: float) -> void:
+	if _current_action:
+		_current_action._process(delta)
 
 func _start_next_action():
 	# Decide what action to run next (placeholder selection)
-	var ActionClass = _select_action_class()
-	if ActionClass:
+	var action = check_priorities()
+	if action:
 		# Clean up previous
 		if _current_action:
 			_current_action.stop()
 		# Instantiate and start new action
-		_current_action = ActionClass.new()
+		_current_action = action 
 		_current_action.start(blackboard)
-		Debug.Log("[AIActor] Started action: %s" % _current_action)
 
-func _select_action_class():
-	# TODO: replace with GOAP/Utility selection logic
-	# For now: pick the first available action
-	for cls in _action_scripts.values():
-		return cls
-	return null
+
+func check_priorities():
+	var prioritized_action : BaseAction
+	var highest_priority := -1
+	for act in _action_list.values():
+		var priority = act.get_priority()
+		if priority > highest_priority:
+			highest_priority = priority
+			prioritized_action = act
+	return prioritized_action
 
 func cleanup():
 	# Stop current action if any

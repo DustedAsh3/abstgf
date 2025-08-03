@@ -27,6 +27,7 @@ WaveSpawnManager="*res://systems/wave_spawn_manager.gd"
 Options="*res://systems/options.gd"
 SaveManager="*res://systems/save_manager.gd"
 Debug="*res://systems/debug.gd"
+Utils="*res://systems/utils.gd"
 
 [dotnet]
 

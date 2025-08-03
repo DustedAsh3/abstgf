@@ -1,23 +1,23 @@
-[gd_resource type="Resource" script_class="PlayerData" load_steps=2 format=3]
+[gd_resource type="Resource" script_class="ActorData" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://resources/resource_scripts/player_data.gd" id="1_cylk5"]
+[ext_resource type="Script" path="res://resources/resource_scripts/actor_data.gd" id="1_inu16"]
 
 [resource]
-script = ExtResource("1_cylk5")
+script = ExtResource("1_inu16")
 data = {
 "attack_configs": [],
-"component_id": 46556775897,
+"component_id": 57394857489,
 "component_type": &"SaveableComponent",
 "component_types_list": [&"MovementComponent", &"HealthComponent", &"ShieldComponent", "MeleeAttackComponent", &"PlayerStateComponent", &"DestructableComponent", &"InputComponent", &"SaveableComponent"],
-"global_position": Vector3(-3.54361, 0, -3.07504),
-"global_rotation": Vector3(0, -1.165, 0),
+"global_position": Vector3(-5.49814, 0, 0.784367),
+"global_rotation": Vector3(0, -0.06, 0),
 "has_animation": false,
 "health": 3.0,
 "is_player_controlled": false,
 "is_shielded": false,
 "max_health": 3.0,
 "max_shield": 100000.0,
-"owner_id": 46321894860,
+"owner_id": 57025758716,
 "shield": 100.0,
 "status": 0,
 "velocity": Vector3(0, 0, 0)

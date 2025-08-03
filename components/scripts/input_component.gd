@@ -19,29 +19,29 @@ func _unhandled_input(event):
 		Input.get_axis(MOVE_FORWARD, MOVE_BACK)
 	)
 	if move_vector.length() > Options.joystick_deadzone or move_vector != last_vector: 
-		EventBus.emit_event("player_input", owner_id, {
+		EventBus.emit_event("entity_input", owner_id, {
 			"input_type": "move",
 			"direction": move_vector.normalized(),
 		})
 	if move_vector != last_vector: last_vector = move_vector
 
 	if event.is_action_pressed(JUMP):
-		EventBus.emit_event("player_input", owner_id, {
+		EventBus.emit_event("entity_input", owner_id, {
 			"input_type": "jump",
 		})
 
 	if event.is_action_pressed(DODGE):
-		EventBus.emit_event("player_input", owner_id, {
+		EventBus.emit_event("entity_input", owner_id, {
 			"input_type": "dodge",
 		})
 
 	if event.is_action_pressed(ATTACK):
-		EventBus.emit_event("player_input", owner_id, {
+		EventBus.emit_event("entity_input", owner_id, {
 			"input_type": "attack",
 			"state": "pressed",
 		})
 	elif event.is_action_released(ATTACK):
-		EventBus.emit_event("player_input", owner_id, {
+		EventBus.emit_event("entity_input", owner_id, {
 			"input_type": "attack",
 			"state": "released",
 		})
