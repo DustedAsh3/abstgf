@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://dl3o80twmqhry"]
+
+[ext_resource type="Script" uid="uid://d3wytbpy6oene" path="res://prefabs/projectiles/scripts/base_projectile.gd" id="1_3v11i"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_3v11i"]
+radius = 0.1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_grxtx"]
+albedo_color = Color(0.883402, 0.632114, 0, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_luy28"]
+material = SubResource("StandardMaterial3D_grxtx")
+radius = 0.1
+height = 0.2
+
+[node name="BaseProjectile" type="StaticBody3D"]
+script = ExtResource("1_3v11i")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_3v11i")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_luy28")

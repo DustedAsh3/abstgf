@@ -7,11 +7,11 @@
 [ext_resource type="PackedScene" uid="uid://b6khqahko1lk0" path="res://components/destructable_component.tscn" id="4_eeeyy"]
 [ext_resource type="PackedScene" uid="uid://dc5thy3hjsq1p" path="res://components/health_component.tscn" id="5_w010u"]
 [ext_resource type="PackedScene" uid="uid://d37alcml8jek0" path="res://components/ai_actor_component.tscn" id="6_j84yg"]
-[ext_resource type="Script" uid="uid://87n5bta4iplk" path="res://components/scripts/ranged_attack_component.gd" id="6_w010u"]
 [ext_resource type="Script" uid="uid://bs0b2ocx3cupt" path="res://actions/base_action.gd" id="6_xdehp"]
 [ext_resource type="PackedScene" uid="uid://c05d17au5rry5" path="res://components/saveable_component.tscn" id="7_x20k3"]
 [ext_resource type="Script" uid="uid://cdc6m5agiy03g" path="res://actions/face_target_action.gd" id="7_xdehp"]
 [ext_resource type="PackedScene" uid="uid://cd3ck4o0mgg18" path="res://components/movement_component.tscn" id="8_06ieg"]
+[ext_resource type="PackedScene" uid="uid://meh0k7jjt16f" path="res://components/ranged_attack_component.tscn" id="12_xdehp"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_j84yg"]
 radius = 5.0
@@ -54,9 +54,7 @@ tick_rate = 0.1
 
 [node name="HealthComponent" parent="." instance=ExtResource("5_w010u")]
 
-[node name="RangedAttackComponent" type="Node" parent="."]
-script = ExtResource("6_w010u")
-metadata/_custom_type_script = "uid://drbs8s6btpoyp"
+[node name="RangedAttackComponent" parent="." instance=ExtResource("12_xdehp")]
 
 [editable path="ActorSkin"]
 [editable path="ActorSkin/VisionComponent"]

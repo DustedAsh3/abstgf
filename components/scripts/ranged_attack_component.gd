@@ -1,7 +1,7 @@
 class_name RangedAttackComponent
 extends BaseComponent
 
-var projectile
+@export var projectile : Projectile
 var projectile_cooldown
 var can_fire
 var targets
