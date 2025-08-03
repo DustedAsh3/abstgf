@@ -1,18 +1,18 @@
-[gd_resource type="Resource" script_class="ActorData" load_steps=2 format=3 uid="uid://bo8tbk77y3tay"]
+[gd_resource type="Resource" script_class="ActorData" load_steps=2 format=3]
 
-[ext_resource type="Script" uid="uid://gd4e78ugrr08" path="res://resources/resource_scripts/actor_data.gd" id="1_wgk8b"]
+[ext_resource type="Script" path="res://resources/resource_scripts/actor_data.gd" id="1_wgk8b"]
 
 [resource]
 script = ExtResource("1_wgk8b")
 data = {
-"component_id": 56941872631,
+"component_id": 56874763765,
 "component_type": &"SaveableComponent",
 "component_types_list": [&"AiActorComponent", &"SaveableComponent", &"MovementComponent", &"DestructableComponent", &"HealthComponent", &"RangedAttackComponent"],
 "debug": "Owner of movement component is not CharacterBody3D or doesn't exist",
-"global_position": Vector3(0, 0, -8.46581),
+"global_position": Vector3(0.270344, 2.38419e-07, -1.67341),
 "global_rotation": Vector3(0, 0, 0),
 "health": 3.0,
 "max_health": 3.0,
-"owner_id": 56488887736,
+"owner_id": 56438556083,
 "velocity": Vector3(0, 0, 0)
 }
