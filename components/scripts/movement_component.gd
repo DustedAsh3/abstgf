@@ -10,6 +10,7 @@ extends BaseComponent
 var current_velocity: Vector3 = Vector3.ZERO
 var jump_count: int = 0
 var move_direction: Vector3 = Vector3.ZERO
+var input_direction : Vector2 = Vector2.ZERO
 
 var event_input: String = "entity_input"
 
@@ -18,7 +19,7 @@ func handle_event(event_name, target_id, event_data):
 	if event_name == event_input and target_id == owner_id:
 		match event_data["input_type"]:
 			"move":
-				move_direction = get_direction_vector(event_data.get("direction", Vector2.ZERO))
+				input_direction = event_data.get("direction", Vector2.ZERO)
 			"jump":
 				jump(event_data)
 			"dodge":
@@ -27,12 +28,14 @@ func handle_event(event_name, target_id, event_data):
 func _physics_process(delta: float) -> void:
 	apply_movement(delta)
 
-func apply_movement(delta):
+func apply_movement(delta):	
 	if not owner_entity or !owner_entity.is_class("CharacterBody3D"):
 		data["debug"] = "Owner of movement component is not CharacterBody3D or doesn't exist"
 		EventBus.emit_event("error", owner_id, data)
 		self.process_mode = Node.PROCESS_MODE_DISABLED
 		return
+	
+	move_direction = CameraManager.get_camera_relative_direction(input_direction)
 	
 	if !owner_entity.is_on_floor():
 		owner_entity.velocity.y -= gravity * delta
@@ -67,19 +70,6 @@ func can_jump():
 		return true
 	else:
 		return false
-
-func get_direction_vector(dir2: Vector2) -> Vector3:
-	# Converts input Vector2 (from input) into a Vector3 movement vector based on camera orientation
-	# For now, just maps X/Z, later could use camera basis
-	var basis = owner_entity.global_transform.basis
-	var forward = basis.z.normalized()
-	var right = basis.x.normalized()
-
-	# Combine right/forward based on input
-	var move_dir = (right * dir2.x) + (forward * dir2.y)
-	move_dir.y = 0
-	move_dir = move_dir.normalized()
-	return Vector3(move_dir.x, 0, move_dir.z)
 
 func update_data():
 	super()

@@ -64,7 +64,7 @@ func transition_to(position, duration):
 	pass
 
 func get_forward_vector() -> Vector3:
-	var fwd = -camera.global_transform.basis.z
+	var fwd = camera.global_transform.basis.z
 	fwd.y = 0
 	return fwd.normalized()
 

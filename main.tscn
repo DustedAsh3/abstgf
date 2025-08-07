@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://bibl0axsyjiuw"]
+[gd_scene load_steps=10 format=3 uid="uid://bibl0axsyjiuw"]
 
 [ext_resource type="PackedScene" uid="uid://ckkoeffehcsul" path="res://assets/Platformer Kit/Models/FBX format/block-grass-hexagon.fbx" id="4_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://b01shl4j4kwpc" path="res://prefabs/enemies/actor.tscn" id="5_lquwl"]
 [ext_resource type="PackedScene" uid="uid://bee4b8kt6xktl" path="res://prefabs/tower.tscn" id="12_1u8w0"]
 [ext_resource type="PackedScene" uid="uid://drtkjfhx7q8xm" path="res://prefabs/player.tscn" id="14_lswn8"]
 [ext_resource type="PackedScene" uid="uid://brckhlh8mxl4j" path="res://prefabs/environment/block_grass_low_large.tscn" id="14_w48qg"]
@@ -52,6 +53,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0104374, 0, 2.41962)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="block-grass-hexagon/block-grass-hexagon/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_1bvp3")
+
+[node name="Actor" parent="." instance=ExtResource("5_lquwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.35305, 0, 4.30795)
 
 [editable path="World/block-grass-low-large2"]
 [editable path="block-grass-hexagon"]

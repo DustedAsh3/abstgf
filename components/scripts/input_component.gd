@@ -13,7 +13,7 @@ const MENU = "menu"
 
 var last_vector : Vector2 = Vector2.ZERO
 
-func _unhandled_input(event):
+func _shortcut_input(event):
 	var move_vector = Vector2(
 		Input.get_axis(MOVE_LEFT, MOVE_RIGHT), 
 		Input.get_axis(MOVE_FORWARD, MOVE_BACK)
