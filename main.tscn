@@ -53,4 +53,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0104374, 0, 2.41962)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="block-grass-hexagon/block-grass-hexagon/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_1bvp3")
 
+[editable path="World/block-grass-low-large2"]
 [editable path="block-grass-hexagon"]

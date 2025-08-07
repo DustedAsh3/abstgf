@@ -1,0 +1,48 @@
+[gd_scene load_steps=9 format=3 uid="uid://b01shl4j4kwpc"]
+
+[ext_resource type="PackedScene" uid="uid://fymggo6kwffo" path="res://prefabs/actor_skin.tscn" id="1_e008k"]
+[ext_resource type="Script" uid="uid://60r3iudi0jfp" path="res://components/scripts/ai_actor_component.gd" id="2_iav1x"]
+[ext_resource type="Script" uid="uid://com6tj2spr8e3" path="res://components/scripts/destructable_component.gd" id="3_uhjpo"]
+[ext_resource type="Script" uid="uid://ucnddnah3rub" path="res://components/scripts/health_component.gd" id="4_nxbio"]
+[ext_resource type="Script" uid="uid://8f8e5cpuiy7u" path="res://components/scripts/movement_component.gd" id="5_4il3a"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_cdiak"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gx4cx"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_c52ay"]
+material = SubResource("StandardMaterial3D_gx4cx")
+
+[node name="Actor" type="CharacterBody3D"]
+collision_layer = 2
+collision_mask = 3
+
+[node name="Physics_Collider" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_cdiak")
+
+[node name="ActorSkin" parent="." instance=ExtResource("1_e008k")]
+
+[node name="Skin" parent="ActorSkin" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_c52ay")
+
+[node name="AiActorComponent" type="Node" parent="."]
+script = ExtResource("2_iav1x")
+metadata/_custom_type_script = "uid://60r3iudi0jfp"
+
+[node name="DestructableComponent" type="Node" parent="."]
+script = ExtResource("3_uhjpo")
+metadata/_custom_type_script = "uid://com6tj2spr8e3"
+
+[node name="HealthComponent" type="Node" parent="."]
+script = ExtResource("4_nxbio")
+metadata/_custom_type_script = "uid://ucnddnah3rub"
+
+[node name="MovementComponent" type="Node" parent="."]
+script = ExtResource("5_4il3a")
+metadata/_custom_type_script = "uid://8f8e5cpuiy7u"
+
+[editable path="ActorSkin"]
+[editable path="ActorSkin/VisionComponent"]
