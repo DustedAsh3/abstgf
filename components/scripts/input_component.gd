@@ -27,9 +27,9 @@ func _shortcut_input(event):
 
 	if event.is_action_pressed(JUMP):
 		EventBus.emit_event("entity_input", owner_id, {
-			"input_type": "jump",
+			"input_type": "jump"
 		})
-
+	
 	if event.is_action_pressed(DODGE):
 		EventBus.emit_event("entity_input", owner_id, {
 			"input_type": "dodge",

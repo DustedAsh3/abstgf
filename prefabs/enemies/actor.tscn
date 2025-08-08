@@ -1,8 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://b01shl4j4kwpc"]
+[gd_scene load_steps=13 format=3 uid="uid://b01shl4j4kwpc"]
 
 [ext_resource type="PackedScene" uid="uid://fymggo6kwffo" path="res://prefabs/actor_skin.tscn" id="1_e008k"]
 [ext_resource type="Script" uid="uid://60r3iudi0jfp" path="res://components/scripts/ai_actor_component.gd" id="2_iav1x"]
+[ext_resource type="Script" uid="uid://bs0b2ocx3cupt" path="res://actions/base_action.gd" id="3_nxbio"]
 [ext_resource type="Script" uid="uid://com6tj2spr8e3" path="res://components/scripts/destructable_component.gd" id="3_uhjpo"]
+[ext_resource type="Script" uid="uid://cdc6m5agiy03g" path="res://actions/face_target_action.gd" id="4_4il3a"]
 [ext_resource type="Script" uid="uid://ucnddnah3rub" path="res://components/scripts/health_component.gd" id="4_nxbio"]
 [ext_resource type="Script" uid="uid://8f8e5cpuiy7u" path="res://components/scripts/movement_component.gd" id="5_4il3a"]
 
@@ -13,6 +15,14 @@ albedo_color = Color(1, 0, 0, 1)
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_c52ay"]
 material = SubResource("StandardMaterial3D_gx4cx")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_uhjpo"]
+radius = 5.0
+
+[sub_resource type="Resource" id="Resource_cdiak"]
+script = ExtResource("4_4il3a")
+base_priority = 0
+metadata/_custom_type_script = "uid://cdc6m5agiy03g"
 
 [node name="Actor" type="CharacterBody3D"]
 collision_layer = 2
@@ -28,8 +38,16 @@ shape = SubResource("CapsuleShape3D_cdiak")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 mesh = SubResource("CapsuleMesh_c52ay")
 
+[node name="VisionComponent" parent="ActorSkin" index="5"]
+sight_tick_rate = 1.0
+
+[node name="SensorShape" parent="ActorSkin/VisionComponent" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("SphereShape3D_uhjpo")
+
 [node name="AiActorComponent" type="Node" parent="."]
 script = ExtResource("2_iav1x")
+action_resources = Array[ExtResource("3_nxbio")]([SubResource("Resource_cdiak")])
 metadata/_custom_type_script = "uid://60r3iudi0jfp"
 
 [node name="DestructableComponent" type="Node" parent="."]

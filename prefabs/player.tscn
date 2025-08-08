@@ -55,6 +55,7 @@ shape = SubResource("CapsuleShape3D_fp3wc")
 
 [node name="MovementComponent" type="Node" parent="."]
 script = ExtResource("1_u51tk")
+is_player = true
 metadata/_custom_type_script = "uid://8f8e5cpuiy7u"
 
 [node name="HealthComponent" type="Node" parent="."]
