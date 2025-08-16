@@ -12,13 +12,14 @@ var event_modify_health: String = "modify_health"
 var event_modify_shield: String = "modify_shield"
 
 func handshake():
+	super()
 	var target = owner_entity.get_node_or_null("HealthComponent")
 	if target:
 		modify_event(target, "event_entity_hit", event_modify_health)
 	target = owner_entity.get_node_or_null("ShieldComponent")
 	if target:
 		modify_event(target, "event_entity_hit", event_modify_shield)
-	super.handshake()
+
 
 
 func handle_event(event_name, target_id, event_data):

@@ -22,6 +22,7 @@ func update_data():
 
 func handshake():
 	# Try to find animation system
+	super()
 	animation_player = owner_entity.get_node_or_null("AnimationPlayer")
 	has_animation = animation_player != null
 

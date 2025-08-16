@@ -1,10 +1,10 @@
-[gd_scene load_steps=17 format=3 uid="uid://drtkjfhx7q8xm"]
+[gd_scene load_steps=18 format=3 uid="uid://drtkjfhx7q8xm"]
 
+[ext_resource type="Script" uid="uid://gmreii88lrp1" path="res://prefabs/enemies/actor.gd" id="1_m2qjg"]
 [ext_resource type="PackedScene" uid="uid://fymggo6kwffo" path="res://prefabs/actor_skin.tscn" id="1_sd3sa"]
 [ext_resource type="Script" uid="uid://8f8e5cpuiy7u" path="res://components/scripts/movement_component.gd" id="1_u51tk"]
 [ext_resource type="Script" uid="uid://ucnddnah3rub" path="res://components/scripts/health_component.gd" id="2_kbsxf"]
 [ext_resource type="Script" uid="uid://deybgve2t4ba1" path="res://components/scripts/shield_component.gd" id="3_rgeog"]
-[ext_resource type="Script" uid="uid://drk1gbdfdcgh7" path="res://components/scripts/melee_attack_component.gd" id="4_opo22"]
 [ext_resource type="Script" uid="uid://e3mmngaoqqs4" path="res://components/scripts/player_state_component.gd" id="5_8rb0w"]
 [ext_resource type="Script" uid="uid://com6tj2spr8e3" path="res://components/scripts/destructable_component.gd" id="6_sd3sa"]
 [ext_resource type="Script" uid="uid://j01uhe5t8i4n" path="res://components/scripts/input_component.gd" id="7_m2qjg"]
@@ -27,9 +27,14 @@ height = 1.0
 radius = 0.25
 height = 1.0
 
+[sub_resource type="BlackboardPlan" id="BlackboardPlan_sd3sa"]
+
 [node name="Player" type="CharacterBody3D"]
 collision_layer = 2
 collision_mask = 3
+script = ExtResource("1_m2qjg")
+id_prefix = "LEX"
+metadata/_custom_type_script = "uid://gmreii88lrp1"
 
 [node name="ActorSkin" parent="." instance=ExtResource("1_sd3sa")]
 
@@ -48,6 +53,7 @@ shape = SubResource("SphereShape3D_u51tk")
 spring_length = 5.0
 
 [node name="Camera3D" type="Camera3D" parent="SpringArm3D" groups=["camera"]]
+current = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
@@ -65,10 +71,6 @@ metadata/_custom_type_script = "uid://ucnddnah3rub"
 [node name="ShieldComponent" type="Node" parent="."]
 script = ExtResource("3_rgeog")
 metadata/_custom_type_script = "uid://deybgve2t4ba1"
-
-[node name="MeleeAttackComponent" type="Node" parent="."]
-script = ExtResource("4_opo22")
-metadata/_custom_type_script = "uid://drk1gbdfdcgh7"
 
 [node name="PlayerStateComponent" type="Node" parent="."]
 script = ExtResource("5_8rb0w")
@@ -127,6 +129,10 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("9_rgeog")
+
+[node name="BTPlayer" type="BTPlayer" parent="."]
+active = false
+blackboard_plan = SubResource("BlackboardPlan_sd3sa")
 
 [editable path="ActorSkin"]
 [editable path="ActorSkin/VisionComponent"]

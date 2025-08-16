@@ -32,6 +32,7 @@ func _physics_process(delta: float) -> void:
 func apply_movement(delta):
 	if not owner_entity or !owner_entity.is_class("CharacterBody3D"):
 		data["debug"] = "Owner of movement component is not CharacterBody3D or doesn't exist"
+		data["owner_class"] = owner_entity.get_class()
 		EventBus.emit_event("error", owner_id, data)
 		self.process_mode = Node.PROCESS_MODE_DISABLED
 		return
@@ -78,6 +79,12 @@ func update_data():
 	data["global_position"] = owner_entity.global_position
 	data["global_rotation"] = owner_entity.global_rotation
 	data["velocity"] = current_velocity
+
+func bind_blackboard():
+	owner_entity.bt_player.blackboard.bind_var_to_property("position", owner_entity, "global_position", true)
+	owner_entity.bt_player.blackboard.bind_var_to_property("rotation", owner_entity, "global_rotation", true)
+	owner_entity.bt_player.blackboard.bind_var_to_property("velocity", self, "current_velocity", true)
+
 
 func set_to_data(data_in):
 	super(data_in)

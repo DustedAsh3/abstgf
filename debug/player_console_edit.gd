@@ -52,6 +52,8 @@ func process_command():
 			Debug.Log(str(EventBus.stateful_data))
 		"get":
 			handle_get_command(args)
+		"blackboard":
+			handle_blackboard_command(args)
 		_:
 			Debug.Log("Unknown command: " + command)
 
@@ -59,10 +61,16 @@ func handle_event_command(args: Array) -> void:
 	if args.size() == 0:
 		Debug.Log("Usage: event <event_name> <target_id>, <{data}>")
 		return
-	EventBus.emit_event(args[0], int(args[1]), JSON.parse_string(args[2]))
+	EventBus.emit_event(args[0], args[1], JSON.parse_string(args[2]))
 
 func handle_get_command(args: Array) -> void:
 	if args.size() == 0:
 		Debug.Log("Usage: get <entity_id>")
 		return
 	Debug.Log("Entity " + str(args[0]) + " is a " + str(instance_from_id(int(args[0])).get_class()) + " Named " + str(instance_from_id(int(args[0])).name))
+
+func handle_blackboard_command(args: Array) -> void:
+	if args.size() == 0:
+		Debug.Log("Usage: blackboard <actor_id>")
+		return
+	EventBus.emit_event("debug_blackboard", args[0])

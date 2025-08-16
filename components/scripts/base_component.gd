@@ -1,30 +1,31 @@
 ## Base Component
 ## The Base Component serves as a foundational component, handling it's 
 ## Creation, Deletion, and Connection to both the EventBus and other Components.
+## The Component should be a direct child of an Actor.
 
 class_name BaseComponent
 extends Node
 
-var owner_entity: Node = null  # Reference to parent/entity
-var owner_id: int = -2 #-2 means unassigned
+var owner_entity: Actor = null  # Reference to parent/entity
+@onready var owner_id: String = "N/A"
 
 var data: Dictionary = {}
 
 func _ready():
-	owner_entity = get_parent()
-	owner_id = owner_entity.get_instance_id()
-	update_data()
-	EventBus.emit_event("component_created", owner_id, data)
+	process_mode = Node.PROCESS_MODE_DISABLED
 	call_deferred("handshake")
 
 func handshake(): #Set any component behaviors based on other components
-	EventBus.emit_event("component_handshake_complete", owner_id, data)
+	owner_entity = get_parent()
+	owner_id = owner_entity.id
 	call_deferred("initialize")
 
 func initialize(params = {}): #Initialize component with current setup
 	# Optional: Set up with params
 	update_data()
 	setup_connections()
+	bind_blackboard()
+	process_mode = Node.PROCESS_MODE_INHERIT
 	EventBus.emit_event("component_initialized", owner_id, data)
 
 func cleanup():
@@ -43,6 +44,9 @@ func update_data(): #extend in child with child data
 	data["owner_id"] = owner_id
 	data["component_id"] = self.get_instance_id()
 	data["component_type"] = self.name
+
+func bind_blackboard():
+	owner_entity.bt_player.blackboard.bind_var_to_property(data["component_type"], self, "name", true)
 
 func set_to_data(data_in):
 	for key in data:

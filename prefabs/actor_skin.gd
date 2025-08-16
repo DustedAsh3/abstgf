@@ -25,17 +25,14 @@ extends Node3D
 @onready var current_state: AnimationNodeStateMachinePlayback = animation_tree.get(
 		"parameters/StateMachine/playback"
 )
-var owner_entity: Node = null  # Reference to parent/entity
-var owner_id: int = -2 #-2 means unassigned
+var owner_entity: Actor = null  # Reference to parent/entity
+var owner_id: String = "N/A" #-2 means unassigned
 
 var data: Dictionary = {}
 var eventNames
 var state_list : Array
 
 func _ready() -> void:
-	owner_entity = get_parent()
-	owner_id = owner_entity.get_instance_id()
-	EventBus.emit_event("component_created", owner_id, data)
 	call_deferred("handshake")
 	get_states()
 
@@ -71,7 +68,9 @@ func get_states():
 	state_list = state_set.keys()
 
 func handshake(): #Set any component behaviors based on other components
-	EventBus.emit_event("component_handshake_complete", owner_id, data)
+	owner_entity = get_parent()
+	owner_id = owner_entity.id
+	update_data()
 	call_deferred("initialize")
 
 func initialize(params = {}): #Initialize component with current setup
@@ -97,3 +96,8 @@ func setup_connections():
 
 func terminate_connections():
 	EventBus.disconnect("event_emitted", handle_event)
+
+func update_data(): 
+	data["owner_id"] = owner_id
+	data["component_id"] = self.get_instance_id()
+	data["component_type"] = self.name

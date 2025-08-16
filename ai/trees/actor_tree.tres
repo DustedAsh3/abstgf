@@ -1,0 +1,78 @@
+[gd_resource type="BehaviorTree" load_steps=18 format=3 uid="uid://dh28nxq6e1y37"]
+
+[ext_resource type="Script" uid="uid://cv60wime12jq6" path="res://ai/tasks/choose_random_location.gd" id="1_adp4n"]
+[ext_resource type="Script" uid="uid://yp5yc1mjg8xh" path="res://ai/tasks/move_to_point.gd" id="1_fvh1k"]
+
+[sub_resource type="BlackboardPlan" id="BlackboardPlan_13wbc"]
+var/behavior/name = &"behavior"
+var/behavior/type = 4
+var/behavior/value = ""
+var/behavior/hint = 0
+var/behavior/hint_string = ""
+var/owner_id/name = &"owner_id"
+var/owner_id/type = 4
+var/owner_id/value = ""
+var/owner_id/hint = 0
+var/owner_id/hint_string = "ACT-1"
+
+[sub_resource type="BBVariant" id="BBVariant_13wbc"]
+type = 4
+saved_value = "Idle"
+resource_name = "Idle"
+
+[sub_resource type="BTSetVar" id="BTSetVar_fvh1k"]
+variable = &"behavior"
+value = SubResource("BBVariant_13wbc")
+
+[sub_resource type="BTRandomWait" id="BTRandomWait_adp4n"]
+min_duration = 0.5
+max_duration = 5.0
+
+[sub_resource type="BTSequence" id="BTSequence_dkby4"]
+custom_name = "Idle"
+children = [SubResource("BTSetVar_fvh1k"), SubResource("BTRandomWait_adp4n")]
+
+[sub_resource type="BBVariant" id="BBVariant_3dbvm"]
+type = 4
+saved_value = "Wander"
+resource_name = "Wander"
+
+[sub_resource type="BTSetVar" id="BTSetVar_fvk54"]
+variable = &"behavior"
+value = SubResource("BBVariant_3dbvm")
+
+[sub_resource type="BTAction" id="BTAction_dkby4"]
+script = ExtResource("1_adp4n")
+
+[sub_resource type="BTAction" id="BTAction_adp4n"]
+script = ExtResource("1_fvh1k")
+acceptable_distance = 3.0
+
+[sub_resource type="BTSequence" id="BTSequence_5g68h"]
+custom_name = "Wander"
+children = [SubResource("BTSetVar_fvk54"), SubResource("BTAction_dkby4"), SubResource("BTAction_adp4n")]
+metadata/_weight_ = 8.0
+
+[sub_resource type="BBVariant" id="BBVariant_fhsj4"]
+type = 4
+saved_value = "Ponder"
+resource_name = "Ponder"
+
+[sub_resource type="BTSetVar" id="BTSetVar_6h7qi"]
+variable = &"behavior"
+value = SubResource("BBVariant_fhsj4")
+
+[sub_resource type="BTRandomWait" id="BTRandomWait_mun1c"]
+min_duration = 0.5
+max_duration = 5.0
+
+[sub_resource type="BTSequence" id="BTSequence_j0dys"]
+custom_name = "Ponder"
+children = [SubResource("BTSetVar_6h7qi"), SubResource("BTRandomWait_mun1c")]
+
+[sub_resource type="BTProbabilitySelector" id="BTProbabilitySelector_rnsj5"]
+children = [SubResource("BTSequence_dkby4"), SubResource("BTSequence_5g68h"), SubResource("BTSequence_j0dys")]
+
+[resource]
+blackboard_plan = SubResource("BlackboardPlan_13wbc")
+root_task = SubResource("BTProbabilitySelector_rnsj5")
