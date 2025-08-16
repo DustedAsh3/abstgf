@@ -1,10 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://bibl0axsyjiuw"]
+[gd_scene load_steps=7 format=3 uid="uid://bibl0axsyjiuw"]
 
-[ext_resource type="PackedScene" uid="uid://ckkoeffehcsul" path="res://assets/Platformer Kit/Models/FBX format/block-grass-hexagon.fbx" id="4_1bvp3"]
+[ext_resource type="Material" uid="uid://djo7qqge4li7v" path="res://assets/proto_black_mat.tres" id="4_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://b01shl4j4kwpc" path="res://prefabs/enemies/actor.tscn" id="5_lquwl"]
-[ext_resource type="PackedScene" uid="uid://bee4b8kt6xktl" path="res://prefabs/tower.tscn" id="12_1u8w0"]
 [ext_resource type="PackedScene" uid="uid://drtkjfhx7q8xm" path="res://prefabs/player.tscn" id="14_lswn8"]
-[ext_resource type="PackedScene" uid="uid://brckhlh8mxl4j" path="res://prefabs/environment/block_grass_low_large.tscn" id="14_w48qg"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_w48qg"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -19,43 +17,98 @@ sky = SubResource("Sky_vivmo")
 tonemap_mode = 2
 glow_enabled = true
 
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_1bvp3"]
-data = PackedVector3Array(0.5, 1, 0.2887, 0, 1, -0.5774, 0.5, 1, -0.2887, 0, 1, -0.5774, 0.5, 1, 0.2887, 0, 1, 0.5774, 0, 1, -0.5774, 0, 1, 0.5774, -0.5, 1, -0.2887, -0.5, 1, -0.2887, 0, 1, 0.5774, -0.5, 1, 0.2887, 0.55, 0.875, 0.3175, 0.5, 1, -0.2887, 0.55, 0.875, -0.3175, 0.5, 1, -0.2887, 0.55, 0.875, 0.3175, 0.5, 1, 0.2887, 0.5, 0.75, -0.2887, 0.55, 0.875, 0.3175, 0.55, 0.875, -0.3175, 0.55, 0.875, 0.3175, 0.5, 0.75, -0.2887, 0.5, 0.75, 0.2887, 0, 1, -0.5774, 0.55, 0.875, -0.3175, 0.5, 1, -0.2887, 0.55, 0.875, -0.3175, 0, 1, -0.5774, 0, 0.875, -0.6351, 0, 0.875, -0.6351, 0.5, 0.75, -0.2887, 0.55, 0.875, -0.3175, 0.5, 0.75, -0.2887, 0, 0.875, -0.6351, 0, 0.75, -0.5774, -0.5, 1, -0.2887, 0, 0.875, -0.6351, 0, 1, -0.5774, 0, 0.875, -0.6351, -0.5, 1, -0.2887, -0.55, 0.875, -0.3175, -0.55, 0.875, -0.3175, 0, 0.75, -0.5774, 0, 0.875, -0.6351, 0, 0.75, -0.5774, -0.55, 0.875, -0.3175, -0.5, 0.75, -0.2887, 0, 0.875, 0.6351, 0.5, 1, 0.2887, 0.55, 0.875, 0.3175, 0.5, 1, 0.2887, 0, 0.875, 0.6351, 0, 1, 0.5774, -0.5, 0.75, 0.2887, 0, 0.875, 0.6351, 0, 0.75, 0.5774, 0, 0.875, 0.6351, -0.5, 0.75, 0.2887, -0.55, 0.875, 0.3175, -0.55, 0.875, 0.3175, -0.5, 0.75, -0.2887, -0.55, 0.875, -0.3175, -0.5, 0.75, -0.2887, -0.55, 0.875, 0.3175, -0.5, 0.75, 0.2887, -0.5, 1, -0.2887, -0.55, 0.875, 0.3175, -0.55, 0.875, -0.3175, -0.55, 0.875, 0.3175, -0.5, 1, -0.2887, -0.5, 1, 0.2887, -0.55, 0.875, 0.3175, 0, 1, 0.5774, 0, 0.875, 0.6351, 0, 1, 0.5774, -0.55, 0.875, 0.3175, -0.5, 1, 0.2887, 0.55, 0.875, 0.3175, 0, 0.75, 0.5774, 0, 0.875, 0.6351, 0, 0.75, 0.5774, 0.55, 0.875, 0.3175, 0.5, 0.75, 0.2887, -0.5, 0, 0.2887, 0, 0.75, 0.5774, 0, 0, 0.5774, 0, 0.75, 0.5774, -0.5, 0, 0.2887, -0.5, 0.75, 0.2887, 0.5, 0, -0.2887, 0, 0, 0.5774, 0.5, 0, 0.2887, 0, 0, 0.5774, 0.5, 0, -0.2887, 0, 0, -0.5774, 0, 0, 0.5774, 0, 0, -0.5774, -0.5, 0, 0.2887, -0.5, 0, 0.2887, 0, 0, -0.5774, -0.5, 0, -0.2887, 0, 0, 0.5774, 0.5, 0.75, 0.2887, 0.5, 0, 0.2887, 0.5, 0.75, 0.2887, 0, 0, 0.5774, 0, 0.75, 0.5774, 0, 0, -0.5774, -0.5, 0.75, -0.2887, -0.5, 0, -0.2887, -0.5, 0.75, -0.2887, 0, 0, -0.5774, 0, 0.75, -0.5774, 0.5, 0, -0.2887, 0, 0.75, -0.5774, 0, 0, -0.5774, 0, 0.75, -0.5774, 0.5, 0, -0.2887, 0.5, 0.75, -0.2887, -0.5, 0.75, -0.2887, -0.5, 0, 0.2887, -0.5, 0, -0.2887, -0.5, 0, 0.2887, -0.5, 0.75, -0.2887, -0.5, 0.75, 0.2887, 0.5, 0, -0.2887, 0.5, 0.75, 0.2887, 0.5, 0.75, -0.2887, 0.5, 0.75, 0.2887, 0.5, 0, -0.2887, 0.5, 0, 0.2887)
-
 [node name="Main" type="Node"]
-
-[node name="Systems" type="Node" parent="."]
 
 [node name="World" type="Node3D" parent="."]
 
-[node name="Tower" parent="World" instance=ExtResource("12_1u8w0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0215969, 2.38419e-07, -3.00556)
-
 [node name="Player" parent="World" instance=ExtResource("14_lswn8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.20262, 2.38419e-07, 6.74882)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.01151, 2.38419e-07, 6.85578)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="World"]
 environment = SubResource("Environment_2cqfq")
-
-[node name="block-grass-low-large2" parent="World" instance=ExtResource("14_w48qg")]
-transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, -5, 0)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="World"]
 transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, -2.23749, 0)
 shadow_enabled = true
 
+[node name="Actor" parent="World" instance=ExtResource("5_lquwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.13351, 0, 2.2386)
+
+[node name="CSG" type="CSGCombiner3D" parent="World"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="World/CSG"]
+size = Vector3(100, 1, 100)
+material = ExtResource("4_1bvp3")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="World/CSG"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50, 15, 0)
+size = Vector3(1, 30, 100)
+material = ExtResource("4_1bvp3")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="World/CSG"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50, 15, 0)
+size = Vector3(1, 30, 100)
+material = ExtResource("4_1bvp3")
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="World/CSG"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.18557e-06, 15, -50)
+size = Vector3(1, 30, 100)
+material = ExtResource("4_1bvp3")
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="World/CSG"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2.18557e-06, 15, 50)
+size = Vector3(1, 30, 100)
+material = ExtResource("4_1bvp3")
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="World/CSG"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 2.5, -16)
+size = Vector3(1, 4, 1)
+material = ExtResource("4_1bvp3")
+
+[node name="CSGBox3D13" type="CSGBox3D" parent="World/CSG"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23, 2, -16)
+size = Vector3(1, 3, 1)
+material = ExtResource("4_1bvp3")
+
+[node name="CSGBox3D14" type="CSGBox3D" parent="World/CSG"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22, 1.5, -16)
+size = Vector3(1, 2, 1)
+material = ExtResource("4_1bvp3")
+
+[node name="CSGBox3D15" type="CSGBox3D" parent="World/CSG"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21, 1, -16)
+material = ExtResource("4_1bvp3")
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="World/CSG"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 3, -16)
+size = Vector3(1, 5, 1)
+material = ExtResource("4_1bvp3")
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="World/CSG"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26, 3.5, -16)
+size = Vector3(1, 6, 1)
+material = ExtResource("4_1bvp3")
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="World/CSG"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27, 4, -16)
+size = Vector3(1, 7, 1)
+material = ExtResource("4_1bvp3")
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="World/CSG"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28, 4.5, -16)
+size = Vector3(1, 8, 1)
+material = ExtResource("4_1bvp3")
+
+[node name="CSGBox3D11" type="CSGBox3D" parent="World/CSG"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29, 5, -16)
+size = Vector3(1, 9, 1)
+material = ExtResource("4_1bvp3")
+
+[node name="CSGBox3D12" type="CSGBox3D" parent="World/CSG"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 5.5, -16)
+size = Vector3(1, 10, 1)
+material = ExtResource("4_1bvp3")
+
 [node name="Menus" type="Node" parent="."]
-
-[node name="block-grass-hexagon" parent="." instance=ExtResource("4_1bvp3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0104374, 0, 2.41962)
-
-[node name="StaticBody3D" type="StaticBody3D" parent="block-grass-hexagon/block-grass-hexagon" index="0"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="block-grass-hexagon/block-grass-hexagon/StaticBody3D"]
-shape = SubResource("ConcavePolygonShape3D_1bvp3")
-
-[node name="Actor" parent="." instance=ExtResource("5_lquwl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.35305, 0, 4.30795)
-
-[editable path="World/block-grass-low-large2"]
-[editable path="block-grass-hexagon"]

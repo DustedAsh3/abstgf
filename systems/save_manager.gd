@@ -11,10 +11,10 @@ var event_load_entity := "load_entity"
 var print_data := "print_data"
 
 func save_game():
-	EventBus.emit_event(event_save_game, -1, data) #should save everything
+	EventBus.emit_event(event_save_game, "ALL", data) #should save everything
 
 func load_game():
-	EventBus.emit_event(event_load_game, -1, data) #should load everything
+	EventBus.emit_event(event_load_game, "ALL", data) #should load everything
 
 func save_entity(entity_id):
 	EventBus.emit_event(event_save_entity, entity_id, data)

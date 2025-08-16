@@ -27,6 +27,7 @@ func _physics_process(delta: float) -> void:
 		_on_hit(collision)
 
 func _on_hit(collision: KinematicCollision3D): #This is unstable.
-	EventBus.emit_event(event_entity_hit, collision.get_collider_id(), data)
+	if collision.is_class("Actor"):
+		EventBus.emit_event(event_entity_hit, collision.get_collider().id, data)
 	self.queue_free()
 	

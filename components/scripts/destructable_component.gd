@@ -1,7 +1,7 @@
 class_name DestructableComponent
 extends BaseComponent
 
-var death_effect: PackedScene
+@export var death_effect: PackedScene
 
 var event_entity_hit: String = "entity_hit"
 var event_entity_removed: String = "entity_removed"

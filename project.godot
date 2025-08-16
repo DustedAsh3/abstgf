@@ -33,6 +33,13 @@ Utils="*res://systems/utils.gd"
 
 project/assembly_name="abstgf"
 
+[file_customization]
+
+folder_colors={
+"res://addons/": "red",
+"res://limbo_demo/": "red"
+}
+
 [global_group]
 
 camera=""

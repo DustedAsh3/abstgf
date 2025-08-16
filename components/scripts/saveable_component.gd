@@ -6,7 +6,7 @@ var event_load_complete := "load_complete"
 var save_location : String
 @export var save_name := "default"
 
-func _ready():
+func handshake():
 	super()
 	if save_name == "default":
 		save_name = owner_entity.name

@@ -47,7 +47,7 @@ func stop():
 	target = null
 	look_target = Vector3.FORWARD
 
-func get_priority() -> int:
+func get_priority(context: Dictionary = {}) -> int:
 	var priority = super()
 	if target:
 		priority += 1

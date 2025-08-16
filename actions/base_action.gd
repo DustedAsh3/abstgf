@@ -40,6 +40,6 @@ func stop() -> void:                        # cleanup if pre-empted
 func _on_no_subaction():
 	finished = true
 
-func get_priority() -> int:
+func get_priority(context: Dictionary = {}) -> int:
 	var priority = base_priority
 	return priority
