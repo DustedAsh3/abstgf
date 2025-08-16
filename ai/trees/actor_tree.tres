@@ -1,7 +1,8 @@
-[gd_resource type="BehaviorTree" load_steps=18 format=3 uid="uid://dh28nxq6e1y37"]
+[gd_resource type="BehaviorTree" load_steps=20 format=3 uid="uid://dh28nxq6e1y37"]
 
 [ext_resource type="Script" uid="uid://cv60wime12jq6" path="res://ai/tasks/choose_random_location.gd" id="1_adp4n"]
 [ext_resource type="Script" uid="uid://yp5yc1mjg8xh" path="res://ai/tasks/move_to_point.gd" id="1_fvh1k"]
+[ext_resource type="Script" uid="uid://bfqkifrds0gqk" path="res://ai/tasks/face_point.gd" id="2_dkby4"]
 
 [sub_resource type="BlackboardPlan" id="BlackboardPlan_13wbc"]
 var/behavior/name = &"behavior"
@@ -44,13 +45,16 @@ value = SubResource("BBVariant_3dbvm")
 [sub_resource type="BTAction" id="BTAction_dkby4"]
 script = ExtResource("1_adp4n")
 
+[sub_resource type="BTAction" id="BTAction_3dbvm"]
+script = ExtResource("2_dkby4")
+
 [sub_resource type="BTAction" id="BTAction_adp4n"]
 script = ExtResource("1_fvh1k")
 acceptable_distance = 3.0
 
 [sub_resource type="BTSequence" id="BTSequence_5g68h"]
 custom_name = "Wander"
-children = [SubResource("BTSetVar_fvk54"), SubResource("BTAction_dkby4"), SubResource("BTAction_adp4n")]
+children = [SubResource("BTSetVar_fvk54"), SubResource("BTAction_dkby4"), SubResource("BTAction_3dbvm"), SubResource("BTAction_adp4n")]
 metadata/_weight_ = 8.0
 
 [sub_resource type="BBVariant" id="BBVariant_fhsj4"]

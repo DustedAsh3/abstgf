@@ -12,6 +12,7 @@ var current_velocity: Vector3 = Vector3.ZERO
 var jump_count: int = 0
 var move_direction: Vector3 = Vector3.ZERO
 var input_direction : Vector2 = Vector2.ZERO
+var look_target : Vector3 = Vector3.ZERO
 
 var event_input: String = "entity_input"
 
@@ -25,6 +26,8 @@ func handle_event(event_name, target_id, event_data):
 				jump(event_data)
 			"dodge":
 				dodge(event_data)
+			"look_at":
+				look_target = event_data.get("target", Vector3.ZERO)
 
 func _physics_process(delta: float) -> void:
 	apply_movement(delta)
@@ -38,7 +41,9 @@ func apply_movement(delta):
 		return
 	
 	if is_player: move_direction = CameraManager.get_camera_relative_direction(input_direction)
-	else: move_direction = get_relative_direction(input_direction)
+	else: 
+		owner_entity.look_at(look_target)
+		move_direction = get_relative_direction(input_direction)
 	
 	if !owner_entity.is_on_floor():
 		owner_entity.velocity.y -= gravity * delta
@@ -84,7 +89,6 @@ func bind_blackboard():
 	owner_entity.bt_player.blackboard.bind_var_to_property("position", owner_entity, "global_position", true)
 	owner_entity.bt_player.blackboard.bind_var_to_property("rotation", owner_entity, "global_rotation", true)
 	owner_entity.bt_player.blackboard.bind_var_to_property("velocity", self, "current_velocity", true)
-
 
 func set_to_data(data_in):
 	super(data_in)

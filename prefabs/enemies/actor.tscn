@@ -59,7 +59,6 @@ metadata/_custom_type_script = "uid://8f8e5cpuiy7u"
 [node name="BTPlayer" type="BTPlayer" parent="."]
 behavior_tree = ExtResource("5_e008k")
 blackboard_plan = SubResource("BlackboardPlan_iav1x")
-monitor_performance = true
 script = ExtResource("7_uhjpo")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]

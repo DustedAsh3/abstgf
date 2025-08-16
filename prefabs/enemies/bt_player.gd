@@ -1,10 +1,12 @@
 extends BTPlayer
 
 var owner_id: String
+var owner_entity: Actor
 
-func _ready():
-	owner_id = get_parent().id
-	blackboard.set_var(&"owner_id", owner_id)
+func _ready() -> void:
+	owner_entity = get_parent()
+	owner_id = owner_entity.id
+	blackboard.bind_var_to_property(&"owner_id", owner_entity, "id", true)
 
 func setup_connections():
 	var connected = EventBus.connect("event_emitted", handle_event)

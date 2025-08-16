@@ -32,7 +32,7 @@ transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -
 shadow_enabled = true
 
 [node name="Actor" parent="World" instance=ExtResource("5_lquwl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.13351, 0, 2.2386)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.3989, 0, -4.51742)
 
 [node name="CSG" type="CSGCombiner3D" parent="World"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)

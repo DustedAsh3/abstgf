@@ -12,12 +12,12 @@ var owner_entity: Actor = null  # Reference to parent/entity
 var data: Dictionary = {}
 
 func _ready():
+	owner_entity = get_parent()
+	owner_id = owner_entity.id
 	process_mode = Node.PROCESS_MODE_DISABLED
 	call_deferred("handshake")
 
 func handshake(): #Set any component behaviors based on other components
-	owner_entity = get_parent()
-	owner_id = owner_entity.id
 	call_deferred("initialize")
 
 func initialize(params = {}): #Initialize component with current setup

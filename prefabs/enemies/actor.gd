@@ -6,7 +6,7 @@ extends CharacterBody3D
 
 var id: String
 
-func _ready():
+func _enter_tree() -> void:
 	id = GameStateManager.request_id(id_prefix)
 	register_id()
 
