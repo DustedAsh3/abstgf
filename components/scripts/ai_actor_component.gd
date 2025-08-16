@@ -12,7 +12,7 @@ extends BaseComponent
 var _action_list := {}              
 # Currently running action instance
 var _current_action : BaseAction
-var blackboard := {}
+var action_data := {}
 
 func _ready():
 	super()  # BaseComponent._ready() will emit creation events, then call initialize
@@ -38,9 +38,9 @@ func _load_action_scripts():
 
 # This is pretty inefficient. TODO: Refactor to reduce the number of prioritization calls
 func update():
-	blackboard = EventBus.stateful_data[owner_id]
-	blackboard["AiActorComponent"] = get_instance_id()
-	blackboard["Owner"] = owner_id
+	action_data = EventBus.stateful_data[owner_id]
+	action_data["AiActorComponent"] = get_instance_id()
+	action_data["Owner"] = owner_id
 	if _current_action == null or _current_action.is_finished():
 		_start_next_action()
 		
@@ -49,7 +49,7 @@ func update():
 		if prioritized_action != _current_action and prioritized_action.interruptable:
 			_start_next_action()
 			return
-		_current_action.update(blackboard)
+		_current_action.update(action_data)
 
 
 func _process(delta: float) -> void:
@@ -65,7 +65,7 @@ func _start_next_action():
 			_current_action.stop()
 		# Instantiate and start new action
 		_current_action = action 
-		_current_action.start(blackboard)
+		_current_action.start(action_data)
 
 
 func check_priorities():

@@ -9,7 +9,6 @@ var owner_entity: Node = null  # Reference to parent/entity
 var owner_id: int = -2 #-2 means unassigned
 
 var data: Dictionary = {}
-var eventNames
 
 func _ready():
 	owner_entity = get_parent()
@@ -48,7 +47,7 @@ func update_data(): #extend in child with child data
 func set_to_data(data_in):
 	for key in data:
 		if data_in.has(key):
-			if key != "owner_id" and key != "component_id" and key != "component_type":
+			if key != "owner_id" and key != "component_id" and key != "component_type": #TODO: Clean this up
 				var old = data[key]
 				if data[key] != data_in[key]:
 					data[key] = data_in[key]
