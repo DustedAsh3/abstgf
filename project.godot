@@ -33,6 +33,10 @@ Utils="*res://systems/utils.gd"
 
 project/assembly_name="abstgf"
 
+[filesystem]
+
+import/blender/enabled=false
+
 [global_group]
 
 camera=""
