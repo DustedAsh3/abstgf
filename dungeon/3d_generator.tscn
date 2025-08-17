@@ -1,6 +1,25 @@
-[gd_scene load_steps=2 format=3 uid="uid://bo7j0sgnwyuw2"]
+[gd_scene load_steps=3 format=3 uid="uid://bo7j0sgnwyuw2"]
 
 [ext_resource type="Script" uid="uid://d0tfqueks1ih1" path="res://dungeon/3d_generator.gd" id="1_3mwj4"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xvx7x"]
+albedo_color = Color(0.446777, 0.446777, 0.446777, 1)
+
 [node name="3DGenerator" type="Node3D"]
 script = ExtResource("1_3mwj4")
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D"]
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.00271, 0.759944, 0.258227)
+size = Vector3(1, 2, 1)
+material = SubResource("StandardMaterial3D_xvx7x")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.660191, 1, 1.76484)
+size = Vector3(1, 1, 2)
+
+[node name="Node3D" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.526835, 0.215043, -0.396849)

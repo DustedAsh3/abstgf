@@ -1,21 +1,14 @@
-class_name BiomeGenerationComponent extends Resource
+class_name BiomeGenerationConfig extends Resource
 """
 Biome-specific generation rules that create thematic consistency.
 Essential for creating distinct visual and gameplay experiences.
 """
 
 @export_group("Biome Identity")
-@export var biome_type: BiomeTypes.BiomeType
+@export var biome_type: Dungeon.BiomeTypes
 @export var biome_name: String = ""
 @export var biome_description: String = ""
 @export var difficulty_modifier: float = 1.0
-
-@export_group("Material Palette")
-@export var wall_materials: Array[Material] = []
-@export var floor_materials: Array[Material] = []
-@export var ceiling_materials: Array[Material] = []
-@export var door_materials: Array[Material] = []
-@export var accent_materials: Array[Material] = []
 
 @export_group("Feature Generation Rules")
 @export var feature_spawn_rules: Dictionary = {} # feature_type -> spawn_probability

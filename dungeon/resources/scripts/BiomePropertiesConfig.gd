@@ -1,4 +1,4 @@
-class_name BiomePropertiesComponent extends Resource
+class_name BiomePropertiesConfig extends Resource
 
 @export var biome_type: Dungeon.BiomeTypes = Dungeon.BiomeTypes.DUNGEON
 @export var lighting_color: Color = Color.WHITE

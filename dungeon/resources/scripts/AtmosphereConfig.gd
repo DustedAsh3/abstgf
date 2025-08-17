@@ -1,5 +1,4 @@
-
-class_name AtmosphereComponent extends Resource
+class_name AtmosphereConfig extends Resource
 """
 Creates immersive environmental atmosphere for rooms and areas.
 Transforms sterile geometry into living, breathing environments.
@@ -10,7 +9,7 @@ Transforms sterile geometry into living, breathing environments.
 @export var ambient_volume: float = 0.5
 @export var ambient_pitch_variation: float = 0.1
 @export var echo_enabled: bool = false
-@export var reverb_preset: String = "cave" # cave, hall, chamber, tunnel
+@export var reverb_preset: AudioManager.ReverbPreset = AudioManager.ReverbPreset.NORMAL
 
 @export_group("Visual Effects")
 @export var particle_system: PackedScene
