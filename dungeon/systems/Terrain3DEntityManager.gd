@@ -1,8 +1,3 @@
-const TerrainTypes = preload("res://scripts/enums/TerrainTypes.gd")
-const RoomTypes = preload("res://scripts/enums/RoomTypes.gd")
-const FeatureTypes = preload("res://scripts/enums/FeatureTypes.gd")
-const SpawnTypes = preload("res://scripts/enums/SpawnTypes.gd")
-
 class_name Terrain3DEntityManager extends Node3D
 
 signal entity_created(entity_id: int)

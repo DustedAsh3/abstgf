@@ -1,8 +1,6 @@
-const TerrainTypes = preload("res://scripts/enums/TerrainTypes.gd")
-
 class_name TerrainTile3DComponent extends Resource
 
-@export var tile_type: TerrainTypes.TerrainType = TerrainTypes.TerrainType.FLOOR
+@export var tile_type: TerrainTypes.TerrainType = Dungeon.TerrainTypes.FLOOR
 @export var is_passable: bool = true
 @export var mesh_resource: Mesh
 @export var material_override: Material

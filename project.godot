@@ -28,6 +28,7 @@ Options="*res://systems/options.gd"
 SaveManager="*res://systems/save_manager.gd"
 Debug="*res://systems/debug.gd"
 Utils="*res://systems/utils.gd"
+Dungeon="*res://dungeon/systems/dungeon.gd"
 
 [dotnet]
 

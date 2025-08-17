@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bo7j0sgnwyuw2"]
 
-[ext_resource type="Script" uid="uid://d0tfqueks1ih1" path="res://3d_generator.gd" id="1_3mwj4"]
+[ext_resource type="Script" uid="uid://d0tfqueks1ih1" path="res://dungeon/3d_generator.gd" id="1_3mwj4"]
 
 [node name="3DGenerator" type="Node3D"]
 script = ExtResource("1_3mwj4")
